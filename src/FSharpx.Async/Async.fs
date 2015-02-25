@@ -3,8 +3,10 @@
 // (c) Tomas Petricek, David Thomas 2012, Available under Apache 2.0 license.
 // ----------------------------------------------------------------------------
 namespace FSharpx.Control
+
 open System
 open System.Threading
+open System.Threading.Tasks
 
 // ----------------------------------------------------------------------------
 
@@ -35,3 +37,22 @@ module AsyncExtensions =
       Async.Start(op, ct.Token)
       { new IDisposable with 
           member x.Dispose() = ct.Cancel() }
+
+    /// Provided an array of Async computations, runs each and returns the first
+    /// to complete or raise an exception.
+    static member Any(tasks: Async<'T>[]) =
+        let tcs = new TaskCompletionSource<'T>()
+        let exec work =
+            async {
+                try
+                    let! result = work
+                    tcs.TrySetResult result |> ignore
+                with exn ->
+                    tcs.TrySetException exn |> ignore
+            } |> Async.Start
+
+        tasks
+        |> Array.Parallel.map exec
+        |> ignore
+
+        Async.AwaitTask tcs.Task
