@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>BlockingQueueAgent<'T> - FSharpx.Async</title>
+    <title>AsyncStreamNode - FSharpx.Async</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
     <meta name="author" content="Thomas Petricek, David Thomas, Steffen Forkmann"/>
@@ -35,146 +35,143 @@
 
 
 
-<h1>BlockingQueueAgent<'T></h1>
+<h1>AsyncStreamNode</h1>
 <div class="xmldoc">
-<p>Agent that implements an asynchronous queue with blocking put
-and blocking get operation (this implements the producer-consumer 
-concurrent programming pattern). The constructor takes the maximal
-size of the buffer.</p>
+<p>Operations on async stream nodes.</p>
 </div>
-  <h3>Constructors</h3>
+
+<!-- Render nested types and modules, if there are any -->
+
+  <h3>Functions and values</h3>
   <table class="table table-bordered member-list">
     <thead>
-      <tr><td>Constructor</td><td>Description</td></tr>
+      <tr><td>Function or value</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '218', 218)" onmouseover="showTip(event, '218', 218)">
-            new(maxLength)
+          <code onmouseout="hideTip(event, '76', 76)" onmouseover="showTip(event, '76', 76)">
+            create hd tl
           </code>
-          <div class="tip" id="218">
-            <strong>Signature:</strong> maxLength:int -&gt; BlockingQueueAgent&lt;&#39;T&gt;<br />
-                      </div>
+          <div class="tip" id="76">
+            <strong>Signature:</strong> hd:&#39;?6646 -&gt; tl:AsyncStream&lt;&#39;?6646&gt; -&gt; AsyncStreamNode&lt;&#39;?6646&gt;<br />
+                          <strong>Type parameters:</strong> '?6646          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BlockingQueueAgent.fs#L21-21" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L15-15" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
         </td>
       </tr>
-    </tbody>
-  </table>
-  <h3>Instance members</h3>
-  <table class="table table-bordered member-list">
-    <thead>
-      <tr><td>Instance member</td><td>Description</td></tr>
-    </thead>
-    <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '219', 219)" onmouseover="showTip(event, '219', 219)">
-            Add(v)
+          <code onmouseout="hideTip(event, '77', 77)" onmouseover="showTip(event, '77', 77)">
+            head arg1
           </code>
-          <div class="tip" id="219">
-            <strong>Signature:</strong> v:&#39;T -&gt; unit<br />
-                      </div>
+          <div class="tip" id="77">
+            <strong>Signature:</strong> AsyncStreamNode&lt;&#39;?6648&gt; -&gt; &#39;?6648<br />
+                          <strong>Type parameters:</strong> '?6648          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BlockingQueueAgent.fs#L84-84" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L17-17" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Asynchronously adds item to the queue. The operation ends when
-there is a place for the item. If the queue is full, the operation
-will block until some items are removed. This overload does not
-signal the caller that the item has been added.</p>
-
+          
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '220', 220)" onmouseover="showTip(event, '220', 220)">
-            AsyncAdd(v, timeout)
+          <code onmouseout="hideTip(event, '78', 78)" onmouseover="showTip(event, '78', 78)">
+            map f arg2
           </code>
-          <div class="tip" id="220">
-            <strong>Signature:</strong> (v:&#39;T * timeout:int option) -&gt; Async&lt;unit&gt;<br />
-                      </div>
+          <div class="tip" id="78">
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;b) -&gt; AsyncStreamNode&lt;&#39;a&gt; -&gt; AsyncStreamNode&lt;&#39;b&gt;<br />
+                          <strong>Type parameters:</strong> 'a, 'b          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BlockingQueueAgent.fs#L77-77" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L21-21" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Asynchronously adds item to the queue. The operation ends when
-there is a place for the item. If the queue is full, the operation
-will block until some items are removed.</p>
-
+          
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '221', 221)" onmouseover="showTip(event, '221', 221)">
-            AsyncGet(timeout)
+          <code onmouseout="hideTip(event, '79', 79)" onmouseover="showTip(event, '79', 79)">
+            repeat a
           </code>
-          <div class="tip" id="221">
-            <strong>Signature:</strong> (timeout:int option) -&gt; Async&lt;&#39;T&gt;<br />
-                      </div>
+          <div class="tip" id="79">
+            <strong>Signature:</strong> a:&#39;a -&gt; AsyncStreamNode&lt;&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BlockingQueueAgent.fs#L89-89" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L24-24" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Asynchronously gets item from the queue. If there are no items
-in the queue, the operation will block until items are added.</p>
-
+          
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '222', 222)" onmouseover="showTip(event, '222', 222)">
-            Count
+          <code onmouseout="hideTip(event, '80', 80)" onmouseover="showTip(event, '80', 80)">
+            tail arg1
           </code>
-          <div class="tip" id="222">
-            <strong>Signature:</strong> int<br />
-                      </div>
+          <div class="tip" id="80">
+            <strong>Signature:</strong> AsyncStreamNode&lt;&#39;?6650&gt; -&gt; AsyncStream&lt;&#39;?6650&gt;<br />
+                          <strong>Type parameters:</strong> '?6650          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BlockingQueueAgent.fs#L99-99" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L19-19" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Gets the number of elements currently waiting in the queue.</p>
-
+          
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '223', 223)" onmouseover="showTip(event, '223', 223)">
-            Get(timeout)
+          <code onmouseout="hideTip(event, '81', 81)" onmouseover="showTip(event, '81', 81)">
+            toAsyncSeq arg1
           </code>
-          <div class="tip" id="223">
-            <strong>Signature:</strong> (timeout:int option) -&gt; &#39;T<br />
-                      </div>
+          <div class="tip" id="81">
+            <strong>Signature:</strong> AsyncStreamNode&lt;&#39;a&gt; -&gt; AsyncSeq&lt;&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BlockingQueueAgent.fs#L95-95" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L27-27" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Synchronously gets item from the queue. If there are no items
-in the queue, the operation will block until items are added.
-This method blocks until value is available!</p>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
 
+          <code onmouseout="hideTip(event, '82', 82)" onmouseover="showTip(event, '82', 82)">
+            un arg1
+          </code>
+          <div class="tip" id="82">
+            <strong>Signature:</strong> AsyncStreamNode&lt;&#39;?6644&gt; -&gt; &#39;?6644 * AsyncStream&lt;&#39;?6644&gt;<br />
+                          <strong>Type parameters:</strong> '?6644          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L13-13" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
         </td>
       </tr>
     </tbody>
