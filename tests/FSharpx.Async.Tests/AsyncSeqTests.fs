@@ -99,3 +99,42 @@ let ``AsyncSeq.bufferByCount``() =
   let s' = s |> AsyncSeq.bufferByCount 2 |> AsyncSeq.toList |> Async.RunSynchronously
 
   Assert.True(([[|1;2|];[|3;4|]] = s'))
+
+module ``interleaveWith Tests`` =
+    let testInterleave a b = 
+        AsyncSeq.interleaveWith
+            (fun (a, b) -> if a < b then -1 else 1)
+            (a |> AsyncSeq.ofSeq)
+            (b |> AsyncSeq.ofSeq)
+        |> AsyncSeq.toBlockingSeq
+        |> Seq.toList
+
+    [<Test>]
+    let ``Can merge two empty streams``() =
+        Assert.AreEqual(
+            actual = testInterleave [] [],
+           expected = [])
+
+    [<Test>]
+    let ``Can merge two identical sequences``() =
+        Assert.AreEqual(
+            actual = testInterleave [ 1; 2; ] [ 1; 2; ],
+            expected = [ 1; 1; 2; 2; ])
+
+    [<Test>]
+    let ``Can merge overlapping sequences``() =
+        Assert.AreEqual(
+            actual = testInterleave [ 1; 2 ] [ 2; 3 ],
+            expected = [ 1; 2; 2; 3 ])
+
+    [<Test>]
+    let ``Can merge non empty with an empty stream``() = 
+        Assert.AreEqual(
+            actual = testInterleave [ 1; 2 ] [],
+            expected = [ 1; 2 ])
+
+    [<Test>]
+    let ``Can merge empty with non empty stream``() = 
+        Assert.AreEqual(
+            actual = testInterleave [] [ 1; 2 ],
+            expected = [ 1; 2 ])
