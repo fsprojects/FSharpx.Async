@@ -38,6 +38,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpx.Async.Tests", "test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library", "library", "{B4BB88FA-DB8C-4651-9869-A8FEA79F044E}"
 	ProjectSection(SolutionItems) = preProject
+		docs\content\library\AsyncFunc.fsx = docs\content\library\AsyncFunc.fsx
 		docs\content\library\AsyncSeq.fsx = docs\content\library\AsyncSeq.fsx
 	EndProjectSection
 EndProject
