@@ -518,6 +518,18 @@ module AsyncSeq =
         else return Nil
     | Nil -> return Nil }
 
+  /// Returns elements from the argument async sequence until the specified signal completes or
+  /// the sequences completes.
+  let rec takeUntil (signal:Async<unit>) (s:AsyncSeq<'a>) : AsyncSeq<'a> =
+    Async.chooseBoth (signal |> Async.map Choice1Of2) (s |> Async.map Choice2Of2)
+    |> Async.map (fun (first,second) ->
+      match first with
+      | Choice1Of2 _ -> Nil
+      | Choice2Of2 Nil -> Nil
+      | Choice2Of2 (Cons(a,tl)) ->        
+        let signal = second |> Async.map (function Choice1Of2 x -> x | _ -> failwith "unexpected state")
+        Cons(a, takeUntil signal tl))
+
   /// Skips elements from an asynchronous sequence while the specified 
   /// predicate holds and then returns the rest of the sequence. The 
   /// predicate is evaluated asynchronously.
@@ -530,10 +542,21 @@ module AsyncSeq =
         else return v
     | Nil -> return Nil }
 
+  /// Skips elements from an async sequence until the specified signal completes.
+  let rec skipUntil (signal:Async<unit>) (s:AsyncSeq<'a>) : AsyncSeq<'a> =
+    Async.chooseBoth (signal |> Async.map Choice1Of2) (s |> Async.map Choice2Of2)
+    |> Async.bind (fun (first,second) ->
+      match first with
+      | Choice1Of2 _ -> second |> Async.map (function Choice2Of2 tl -> tl | _ -> failwith "unexpected state")
+      | Choice2Of2 Nil -> Nil |> async.Return
+      | Choice2Of2 (Cons(_,tl)) -> 
+        let signal = second |> Async.map (function Choice1Of2 x -> x | _ -> failwith "unexpected state")
+        skipUntil signal tl)
+
   /// Returns elements from an asynchronous sequence while the specified 
   /// predicate holds. The predicate is evaluated synchronously.
   let rec takeWhile p (input : AsyncSeq<'T>) = 
-    takeWhileAsync (p >> async.Return) input
+    takeWhileAsync (p >> async.Return) input  
 
   /// Skips elements from an asynchronous sequence while the specified 
   /// predicate holds and then returns the rest of the sequence. The 
@@ -641,6 +664,36 @@ module AsyncSeq =
     | [s] -> s
     | [a;b] -> merge a b
     | hd::tl -> merge hd (mergeAll tl)
+      
+  /// Returns an async sequence which contains no contiguous duplicate elements based on the specified comparison function.
+  let distinctUntilChangedWithAsync (f:'a -> 'a -> Async<bool>) (s:AsyncSeq<'a>) : AsyncSeq<'a> =     
+    
+    // return the head, if any, then the tail passing the previous element
+    let rec head s =
+      s |> Async.map (function
+        | Nil -> Nil
+        | Cons(a,tl) -> Cons(a, tail a tl))
+    
+    // returns the tail comparing with the previous element
+    and tail prev s =
+      s |> Async.bind (function
+        | Nil -> Nil |> async.Return
+        | Cons(a,tl) ->
+          f a prev 
+            |> Async.bind (function
+            | true -> tail a tl
+            | false -> Cons(a, tail a tl) |> async.Return))
+
+    head s
+
+  /// Returns an async sequence which contains no contiguous duplicate elements based on the specified comparison function.
+  let distinctUntilChangedWith (f:'a -> 'a -> bool) (s:AsyncSeq<'a>) : AsyncSeq<'a> =
+    distinctUntilChangedWithAsync (fun a b -> f a b |> async.Return) s
+
+  /// Returns an async sequence which contains no contiguous duplicate elements.
+  let distinctUntilChanged (s:AsyncSeq<'a>) : AsyncSeq<'a> =
+    distinctUntilChangedWith ((=)) s
+        
     
 
 
