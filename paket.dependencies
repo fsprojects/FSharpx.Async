@@ -1,10 +1,11 @@
 source https://nuget.org/api/v2
 
 nuget FSharp.Formatting
-nuget NUnit 
+nuget NUnit
 nuget NUnit.Runners
 nuget FAKE
 nuget SourceLink.Fake
+nuget FSharp.Control.AsyncSeq
 
 github fsharp/FAKE modules/Octokit/Octokit.fsx
 github fsprojects/FSharpx.Collections src/FSharpx.Collections/CircularBuffer.fs

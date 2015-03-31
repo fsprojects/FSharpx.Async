@@ -6,6 +6,7 @@
 namespace FSharpx.IO
 open System.IO
 open FSharpx.Control
+open FSharp.Control
 // ----------------------------------------------------------------------------
 // Extensions that simplify working with Stream using async sequences
 

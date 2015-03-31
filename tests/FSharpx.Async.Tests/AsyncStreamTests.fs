@@ -1,5 +1,6 @@
 ﻿module AsyncStreamTests
 
+open FSharp.Control
 open FSharpx.Control
 open NUnit.Framework
 

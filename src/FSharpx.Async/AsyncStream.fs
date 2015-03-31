@@ -1,5 +1,6 @@
 ﻿namespace FSharpx.Control
 
+open FSharp.Control
 
 /// An infinite async sequence.
 type AsyncStream<'a> = Async<AsyncStreamNode<'a>>
@@ -59,9 +60,15 @@ module AsyncStream =
 
   /// Prepends an async sequence to a stream.
   let rec prefixAsyncSeq (s:AsyncSeq<'a>) (a:AsyncStream<'a>) : AsyncStream<'a> =
-    s |> Async.bind (function
-      | Nil -> a
-      | Cons(hd,tl) -> create hd (prefixAsyncSeq tl a))
+    async { 
+        let i = AsyncSeq.getIterator s 
+        let rec loop() = async { 
+            let! v = i()  
+            match v with 
+            | None -> return! a 
+            | Some hd -> return! create hd (loop()) }
+        return! loop()
+    }
 
   /// Produces the infinite sequence of repeated applications of f.
   let rec iterate (f:'a -> 'a) (a:'a) : AsyncStream<'a> =
