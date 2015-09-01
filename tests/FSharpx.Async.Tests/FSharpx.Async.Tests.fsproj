@@ -59,6 +59,9 @@
   <ItemGroup>
     <Compile Include="AsyncTest.fs" />
     <Compile Include="AsyncStreamTests.fs" />
+    <Compile Include="ObservableMock.fs" />
+    <Compile Include="AwaitHelpers.fs" />
+    <Compile Include="AwaitObservableTests.fs" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
