@@ -70,6 +70,7 @@
     <Compile Include="CircularQueueAgent.fs" />
     <Compile Include="ConcurrentSetAgent.fs" />
     <Compile Include="SlidingWindowAgent.fs" />
+    <Compile Include="ResultChannel.fs" />
     <Compile Include="Observable.fs" />
     <Compile Include="Async.fs" />
     <Compile Include="AsyncOperations.fsi" />

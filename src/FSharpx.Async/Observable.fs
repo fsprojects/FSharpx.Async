@@ -254,31 +254,42 @@ module Observable =
       static member GuardedAwaitObservable (ev1:IObservable<'T1>) guardFunction =
           async {
               let! token = Async.CancellationToken // capture the current cancellation token
+              
               return! Async.FromContinuations(fun (cont, econt, ccont) ->
-                  // start a new mailbox processor which will await the result
-                  Agent.Start((fun (mailbox : Agent<Choice<'T1, exn, OperationCanceledException>>) ->
-                      async {
-                          // register a callback with the cancellation token which posts a cancellation message
-                          use __ = token.Register((fun _ ->
-                              mailbox.Post (Choice3Of3 (new OperationCanceledException("The opeartion was cancelled.")))))
-          
-                          // subscribe to the observable: if an error occurs post an error message and post the result otherwise
-                          use __ = 
-                              ev1.Subscribe({ new IObserver<'T1> with
-                                  member __.OnNext result = mailbox.Post (Choice1Of3 result)
-                                  member __.OnError exn = mailbox.Post (Choice2Of3 exn)
-                                  member __.OnCompleted () =
-                                      let msg = "Cancelling the workflow, because the Observable awaited using AwaitObservable has completed."
-                                      mailbox.Post (Choice3Of3 (new OperationCanceledException(msg))) })
-                          
-                          guardFunction() // call the guard function
+                  Async.Start <| async { 
+                      // create a result channel to capture the result when one occurs
+                      let resultChannel = new ResultChannel<_>()
+                      let resultRegistered = ref false
+                      
+                      // define a helper function to ensure that only one result is posted to the channel
+                      let registerResult r =
+                          lock resultChannel (fun () -> 
+                              if not !resultRegistered then
+                                  resultChannel.RegisterResult r
+                                  resultRegistered := true)
 
-                          // wait for the first of these messages and call the appropriate continuation function
-                          let! message = mailbox.Receive()
-                          match message with
-                          | Choice1Of3 reply -> cont reply
-                          | Choice2Of3 exn -> econt exn
-                          | Choice3Of3 exn -> ccont exn })) |> ignore) }
+                      // register a callback with the cancellation token which posts a cancellation message
+                      use __ = token.Register(fun _ ->
+                          registerResult (Choice3Of3 (new OperationCanceledException("The operation was cancelled."))))
+
+                      // subscribe to the observable and post the appropriate result to the result channel
+                      // when the next notification occurs
+                      use __ = 
+                          ev1.Subscribe ({ new IObserver<'T1> with
+                              member __.OnNext x = registerResult (Choice1Of3 x)
+                              member __.OnError exn = registerResult (Choice2Of3 exn)
+                              member __.OnCompleted () = 
+                                  let msg = "Cancelling workflow, because the observable awaited using AwaitObservable has completed."
+                                  registerResult (Choice3Of3 (new OperationCanceledException(msg))) })
+              
+                      guardFunction() // call the guard function
+                      
+                      // wait for the first of these messages and call the appropriate continuation function
+                      let! result = resultChannel.AwaitResult()
+                      match result with
+                      | Choice1Of3 x   -> cont x
+                      | Choice2Of3 exn -> econt exn
+                      | Choice3Of3 exn -> ccont exn }) }
 
       /// Creates an asynchronous workflow that will be resumed when the 
       /// specified observables produces a value. The workflow will return 
