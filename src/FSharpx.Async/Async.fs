@@ -14,7 +14,48 @@ module AsyncOps =
   let unit : Async<unit> = async.Return()
 
   let never : Async<unit> = Async.Sleep -1
- 
+
+
+module Async =
+
+    /// Creates an asynchronous computation that executes all the given asynchronous computations, initially queueing each as work items and using a fork/join pattern.
+    /// This function doesn't throw exceptions, but instead returns an array of Choices.
+    let ParallelCatch computations =
+        computations
+        |> Seq.map Async.Catch
+        |> Async.Parallel
+
+
+    /// common code for ParallelCatchWithTrottle and ParallelWithTrottle
+    let private ParallelWithTrottleCustom tranformResult throttle computations =
+        use semaphore = new Semaphore(throttle, throttle)
+        let throttleAsync a =
+            async {
+                do! Async.AwaitWaitHandle semaphore |> Async.Ignore
+                let! result = Async.Catch a
+                semaphore.Release() |> ignore
+                return tranformResult result
+            }
+        computations
+        |> Seq.map throttleAsync
+        |> Async.Parallel
+
+
+    /// Creates an asynchronous computation that executes all the given asynchronous computations, initially queueing each as work items and using a fork/join pattern.
+    /// This function doesn't throw exceptions, but instead returns an array of Choices.
+    /// The paralelism is throttled, so that at most `throttle` computations run at one time.
+    let ParallelCatchWithTrottle throttle computations =
+        ParallelWithTrottleCustom id throttle computations
+
+
+    /// Creates an asynchronous computation that executes all the given asynchronous computations, initially queueing each as work items and using a fork/join pattern.
+    /// The paralelism is throttled, so that at most `throttle` computations run at one time.
+    let ParallelWithTrottle throttle computations =
+        let extractOrThrow = function
+           | Choice1Of2 ok -> ok
+           | Choice2Of2 ex -> raise ex
+        ParallelWithTrottleCustom extractOrThrow throttle computations
+
 
 [<AutoOpen>]
 module AsyncExtensions =             
