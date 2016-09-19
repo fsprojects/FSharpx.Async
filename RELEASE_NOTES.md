@@ -1,5 +1,6 @@
 ### 1.12.0 - 19.09.2016
 * Addded ParallelWithThrottle - https://github.com/fsprojects/FSharpx.Async/pull/31
+* Updated to .NET 4.5
 
 ### 1.11.1 - 26.03.2015
 * BUGFIX: AsyncSeq.toBlockingSeq does not hung forever if an exception is thrown and reraise it outside - https://github.com/fsprojects/FSharpx.Async/pull/21
