@@ -1,14 +1,14 @@
 NUGET
   remote: https://www.nuget.org/api/v2
-    FAKE (3.26.1)
-    FSharp.Compiler.Service (0.0.87)
-    FSharp.Control.AsyncSeq (1.15)
-    FSharp.Core (4.0.0.1)
-    FSharp.Formatting (2.7.5)
-      FSharp.Compiler.Service (>= 0.0.82)
-      FSharpVSPowerTools.Core (>= 1.7)
-    FSharpVSPowerTools.Core (1.7)
-      FSharp.Compiler.Service (>= 0.0.81)
+    FAKE (4.40)
+    FSharp.Compiler.Service (2.0.0.6)
+    FSharp.Control.AsyncSeq (2.0.9)
+    FSharp.Core (4.0.0.1) - redirects: force
+    FSharp.Formatting (2.14.4)
+      FSharp.Compiler.Service (2.0.0.6)
+      FSharpVSPowerTools.Core (>= 2.3 < 2.4)
+    FSharpVSPowerTools.Core (2.3)
+      FSharp.Compiler.Service (>= 2.0.0.3)
     Microsoft.Bcl (1.1.10) - framework: net10, net11, net20, net30, net35, net40, net40-full
       Microsoft.Bcl.Build (>= 1.0.14)
     Microsoft.Bcl.Build (1.0.21) - import_targets: false, framework: net10, net11, net20, net30, net35, net40, net40-full
@@ -17,12 +17,12 @@ NUGET
       Microsoft.Bcl.Build (>= 1.0.14)
     NUnit (2.6.4)
     NUnit.Runners (2.6.4)
-    Octokit (0.21.1)
+    Octokit (0.22)
       Microsoft.Net.Http  - framework: net10, net11, net20, net30, net35, net40, net40-full
-    SourceLink.Fake (0.5)
+    SourceLink.Fake (1.1)
 GITHUB
   remote: fsharp/FAKE
-    modules/Octokit/Octokit.fsx (934dc8313e2c54793813058fe2540511ad3b8468)
+    modules/Octokit/Octokit.fsx (dab7b5aea40c0855cf35fc7d6e67fa4f411fb24b)
       Octokit (>= 0.20)
   remote: fsprojects/FSharpx.Collections
-    src/FSharpx.Collections/CircularBuffer.fs (670df56ddb58f406f9268c7063c8a250b1b77a2c)
+    src/FSharpx.Collections/CircularBuffer.fs (944b8c8e464cdd10070889f53c78e9fbeb478698)

@@ -1,9 +1,9 @@
 source https://nuget.org/api/v2
 
-nuget Fsharp.Core
+nuget Fsharp.Core redirects:force
 nuget FSharp.Formatting
-nuget NUnit
-nuget NUnit.Runners
+nuget NUnit ~> 2.6
+nuget NUnit.Runners ~> 2.6
 nuget FAKE
 nuget SourceLink.Fake
 nuget FSharp.Control.AsyncSeq
