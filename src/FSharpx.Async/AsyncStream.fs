@@ -27,7 +27,8 @@ module AsyncStreamNode =
     
   let rec toAsyncSeq (ASN(a,tail)) : AsyncSeq<'a> = asyncSeq {
     yield a
-    yield! tail |> Async.bind toAsyncSeq }    
+    let! rest = tail
+    yield! toAsyncSeq rest }    
 
 
 /// Operations on async streams.
@@ -100,8 +101,9 @@ module AsyncStream =
     s |> Async.bind (fun (ASN(hd,tl)) -> prefixAsyncSeq (f hd) (mapAsyncSeq f tl))
 
   /// Creates an infinite async sequence from the stream.
-  let toAsyncSeq (s:AsyncStream<'a>) : AsyncSeq<'a> =
-    s |> Async.bind (AsyncStreamNode.toAsyncSeq)
+  let toAsyncSeq (s:AsyncStream<'a>) : AsyncSeq<'a> = asyncSeq {
+    let! node = s
+    yield! AsyncStreamNode.toAsyncSeq node }
 
   /// Creates an async sequence which iterates through the first n elements from the stream.
   let take (n:int) (s:AsyncStream<'a>) : AsyncSeq<'a> =

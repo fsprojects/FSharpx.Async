@@ -13,7 +13,6 @@ let ``AsyncStream.repeat``() =
     AsyncStream.repeat 1 
     |> AsyncStream.take n 
     |> AsyncSeq.toList 
-    |> Async.RunSynchronously
   
   Assert.True ((List.init n (fun _ -> 1) = s))
 
@@ -24,7 +23,6 @@ let ``AsyncStream.unfoldAsync``() =
     AsyncStream.unfoldAsync (fun i -> (i,i + 1) |> async.Return) 0
     |> AsyncStream.take 3
     |> AsyncSeq.toList
-    |> Async.RunSynchronously
 
   Assert.True ((List.init 3 id = s))
 
@@ -36,7 +34,6 @@ let ``AsyncStream.mapAsync``() =
     |> AsyncStream.mapAsync (fun a -> a.ToString() |> async.Return)
     |> AsyncStream.take 3
     |> AsyncSeq.toList
-    |> Async.RunSynchronously
 
   Assert.True ((List.init 3 (fun _ -> "1") = s))
 
@@ -47,7 +44,6 @@ let ``AsyncStream.cycleList``() =
     AsyncStream.cycleList [1;2;3]
     |> AsyncStream.take 6
     |> AsyncSeq.toList
-    |> Async.RunSynchronously
 
   Assert.True(([1;2;3;1;2;3] = s))
 
@@ -58,10 +54,9 @@ let ``AsyncStream.tails``() =
     AsyncStream.cycleList [1;2;3;4]
     |> AsyncStream.tails
     |> AsyncStream.take 3
-    |> AsyncSeq.mapAsync (AsyncStream.take 3 >> AsyncSeq.toList)
+    |> AsyncSeq.map (AsyncStream.take 3 >> AsyncSeq.toList)
     |> AsyncSeq.toList
-    |> Async.RunSynchronously
-
+    
   Assert.True(([ [2;3;4] ; [3;4;1] ; [4;1;2] ] = s))
 
 [<Test>]
@@ -72,8 +67,7 @@ let ``AsyncStream.prefixAsyncSeq``() =
     |> AsyncStream.prefixAsyncSeq (AsyncSeq.ofSeq [1;2])
     |> AsyncStream.take 3
     |> AsyncSeq.toList
-    |> Async.RunSynchronously
-
+    
   Assert.True(([1;2;3] = s))
 
 [<Test>]
@@ -94,7 +88,6 @@ let ``AsyncStream.filterAsync``() =
     |> AsyncStream.filterAsync (fun a -> (a % 2 = 0) |> async.Return)
     |> AsyncStream.take 4
     |> AsyncSeq.toList
-    |> Async.RunSynchronously
 
   Assert.True([2;4;2;4] = s) 
 
@@ -106,7 +99,6 @@ let ``AsyncStream.chooseAsync``() =
     |> AsyncStream.chooseAsync (fun a -> if (a % 2 = 0) then Some (a.ToString()) |> async.Return else async.Return None)
     |> AsyncStream.take 4
     |> AsyncSeq.toList
-    |> Async.RunSynchronously
 
   Assert.True(["2";"4";"2";"4"] = s) 
 
@@ -118,7 +110,6 @@ let ``AsyncStream.scanAsync``() =
     |> AsyncStream.scanAsync (fun a b -> b @ [a]  |> async.Return) []
     |> AsyncStream.take 4
     |> AsyncSeq.toList
-    |> Async.RunSynchronously
 
   Assert.True([[1];[1;2];[1;2;3];[1;2;3;4]] = s) 
 
