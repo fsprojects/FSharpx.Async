@@ -1,4 +1,4 @@
-### 1.12.0 - 19.09.2016
+### 1.13.0 - 19.09.2016
 * Addded ParallelWithThrottle - https://github.com/fsprojects/FSharpx.Async/pull/31
 * Updated to .NET 4.5
 
