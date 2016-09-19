@@ -36,6 +36,9 @@
 
 
 <h1>FileExtensions</h1>
+<p>
+  <span>Namespace: FSharpx.Control</span><br />
+</p>
 <div class="xmldoc">
 </div>
 
@@ -50,10 +53,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '48', 48)" onmouseover="showTip(event, '48', 48)">
+          <code onmouseout="hideTip(event, '51', 51)" onmouseover="showTip(event, '51', 51)">
             AsyncAppendAllBytes(path, bytes)
           </code>
-          <div class="tip" id="48">
+          <div class="tip" id="51">
             <strong>Signature:</strong> (path:string * bytes:byte array) -&gt; Async&lt;unit&gt;<br />
                       </div>
         </td>
@@ -63,15 +66,16 @@
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>File.AsyncAppendAllBytes.Static</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '49', 49)" onmouseover="showTip(event, '49', 49)">
+          <code onmouseout="hideTip(event, '52', 52)" onmouseover="showTip(event, '52', 52)">
             AsyncAppendAllLines(...)
           </code>
-          <div class="tip" id="49">
+          <div class="tip" id="52">
             <strong>Signature:</strong> (path:string * lines:string array * encoder:Encoding option) -&gt; Async&lt;unit&gt;<br />
                       </div>
         </td>
@@ -81,15 +85,16 @@
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>File.AsyncAppendAllLines.Static</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '50', 50)" onmouseover="showTip(event, '50', 50)">
+          <code onmouseout="hideTip(event, '53', 53)" onmouseover="showTip(event, '53', 53)">
             AsyncAppendAllText(path, txt, ?encoder)
           </code>
-          <div class="tip" id="50">
+          <div class="tip" id="53">
             <strong>Signature:</strong> (path:string * txt:string * encoder:Encoding option) -&gt; Async&lt;unit&gt;<br />
                       </div>
         </td>
@@ -99,15 +104,16 @@
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>File.AsyncAppendAllText.Static</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '51', 51)" onmouseover="showTip(event, '51', 51)">
+          <code onmouseout="hideTip(event, '54', 54)" onmouseover="showTip(event, '54', 54)">
             AsyncAppendText(path)
           </code>
-          <div class="tip" id="51">
+          <div class="tip" id="54">
             <strong>Signature:</strong> path:string -&gt; Async&lt;StreamWriter&gt;<br />
                       </div>
         </td>
@@ -118,15 +124,17 @@
             </a>
           <p>Create an async that returns a <c>System.IO.StreamWriter</c> that appends UTF-8 text to an existing file, via a fresh I/O thread.</p>
 
+
+              <p>CompiledName: <code>File.AsyncAppendText.Static</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '52', 52)" onmouseover="showTip(event, '52', 52)">
+          <code onmouseout="hideTip(event, '55', 55)" onmouseover="showTip(event, '55', 55)">
             AsyncOpen(...)
           </code>
-          <div class="tip" id="52">
+          <div class="tip" id="55">
             <strong>Signature:</strong> (path:string * mode:FileMode * access:FileAccess option * share:FileShare option * bufferSize:int option * options:FileOptions option) -&gt; Async&lt;FileStream&gt;<br />
                       </div>
         </td>
@@ -139,15 +147,17 @@
 Pass <c>options=FileOptions.Asynchronous</c> to enable further asynchronous read/write operations
 on the FileStream.</p>
 
+
+              <p>CompiledName: <code>File.AsyncOpen.Static</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '53', 53)" onmouseover="showTip(event, '53', 53)">
+          <code onmouseout="hideTip(event, '56', 56)" onmouseover="showTip(event, '56', 56)">
             AsyncOpenRead(path)
           </code>
-          <div class="tip" id="53">
+          <div class="tip" id="56">
             <strong>Signature:</strong> path:string -&gt; Async&lt;FileStream&gt;<br />
                       </div>
         </td>
@@ -158,15 +168,17 @@ on the FileStream.</p>
             </a>
           <p>Create an async that opens a <c>System.IO.FileStream</c> on the specified path for read/write access, via a fresh I/O thread.</p>
 
+
+              <p>CompiledName: <code>File.AsyncOpenRead.Static</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '54', 54)" onmouseover="showTip(event, '54', 54)">
+          <code onmouseout="hideTip(event, '57', 57)" onmouseover="showTip(event, '57', 57)">
             AsyncOpenText(path)
           </code>
-          <div class="tip" id="54">
+          <div class="tip" id="57">
             <strong>Signature:</strong> path:string -&gt; Async&lt;StreamReader&gt;<br />
                       </div>
         </td>
@@ -177,15 +189,17 @@ on the FileStream.</p>
             </a>
           <p>Create an async that opens an existing file for reading, via a fresh I/O thread.</p>
 
+
+              <p>CompiledName: <code>File.AsyncOpenText.Static</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '55', 55)" onmouseover="showTip(event, '55', 55)">
+          <code onmouseout="hideTip(event, '58', 58)" onmouseover="showTip(event, '58', 58)">
             AsyncOpenWrite(path)
           </code>
-          <div class="tip" id="55">
+          <div class="tip" id="58">
             <strong>Signature:</strong> path:string -&gt; Async&lt;FileStream&gt;<br />
                       </div>
         </td>
@@ -196,15 +210,17 @@ on the FileStream.</p>
             </a>
           <p>Create an async that opens an existing file writing, via a fresh I/O thread.</p>
 
+
+              <p>CompiledName: <code>File.AsyncOpenWrite.Static</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '56', 56)" onmouseover="showTip(event, '56', 56)">
+          <code onmouseout="hideTip(event, '59', 59)" onmouseover="showTip(event, '59', 59)">
             AsyncWriteAllBytes(path, bytes)
           </code>
-          <div class="tip" id="56">
+          <div class="tip" id="59">
             <strong>Signature:</strong> (path:string * bytes:byte array) -&gt; Async&lt;unit&gt;<br />
                       </div>
         </td>
@@ -214,15 +230,16 @@ on the FileStream.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>File.AsyncWriteAllBytes.Static</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '57', 57)" onmouseover="showTip(event, '57', 57)">
+          <code onmouseout="hideTip(event, '60', 60)" onmouseover="showTip(event, '60', 60)">
             AsyncWriteAllLines(...)
           </code>
-          <div class="tip" id="57">
+          <div class="tip" id="60">
             <strong>Signature:</strong> (path:string * lines:string array * encoder:Encoding option) -&gt; Async&lt;unit&gt;<br />
                       </div>
         </td>
@@ -232,15 +249,16 @@ on the FileStream.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>File.AsyncWriteAllLines.Static</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '58', 58)" onmouseover="showTip(event, '58', 58)">
+          <code onmouseout="hideTip(event, '61', 61)" onmouseover="showTip(event, '61', 61)">
             AsyncWriteAllText(path, txt, ?encoder)
           </code>
-          <div class="tip" id="58">
+          <div class="tip" id="61">
             <strong>Signature:</strong> (path:string * txt:string * encoder:Encoding option) -&gt; Async&lt;unit&gt;<br />
                       </div>
         </td>
@@ -250,6 +268,7 @@ on the FileStream.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>File.AsyncWriteAllText.Static</code></p>
         </td>
       </tr>
     </tbody>
@@ -269,7 +288,7 @@ on the FileStream.</p>
             <li class="divider"></li>
             <li class="nav-header">Documentation</li>
             <li><a href="/FSharpx.Async/terminology.html">Terminology</a></li>
-            <li><a href="http://fsprojects.github.io/FSharp.Control.AsyncSeq/index.html">FSharp.Control.AsyncSeq</a></li>           
+            <li><a href="/FSharpx.Async/library/AsyncSeq.html">AsyncSeq</a></li>           
             <li><a href="/FSharpx.Async/reference/index.html">API Reference</a></li>
           </ul>
         </div>

@@ -36,8 +36,12 @@
 
 
 <h1>AsyncStream</h1>
+<p>
+  <span>Namespace: FSharpx.Control</span><br />
+</p>
 <div class="xmldoc">
 <p>Operations on async streams.</p>
+
 </div>
 
 <!-- Render nested types and modules, if there are any -->
@@ -51,76 +55,20 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '17', 17)" onmouseover="showTip(event, '17', 17)">
+          <code onmouseout="hideTip(event, '20', 20)" onmouseover="showTip(event, '20', 20)">
             chooseAsync f s
           </code>
-          <div class="tip" id="17">
+          <div class="tip" id="20">
             <strong>Signature:</strong> f:(&#39;a -&gt; Async&lt;&#39;b option&gt;) -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;b&gt;<br />
                           <strong>Type parameters:</strong> 'a, 'b          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L139-139" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L141-141" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Filters and maps a stream using the specified choose function.</p>
 
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '18', 18)" onmouseover="showTip(event, '18', 18)">
-            create hd tl
-          </code>
-          <div class="tip" id="18">
-            <strong>Signature:</strong> hd:&#39;?6666 -&gt; tl:AsyncStream&lt;&#39;?6666&gt; -&gt; Async&lt;AsyncStreamNode&lt;&#39;?6666&gt;&gt;<br />
-                          <strong>Type parameters:</strong> '?6666          </div>
-        </td>
-        <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L37-37" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>Creates an async stream given a head and tail.</p>
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '19', 19)" onmouseover="showTip(event, '19', 19)">
-            cycleList xs
-          </code>
-          <div class="tip" id="19">
-            <strong>Signature:</strong> xs:&#39;a list -&gt; AsyncStream&lt;&#39;a&gt;<br />
-                          <strong>Type parameters:</strong> 'a          </div>
-        </td>
-        <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L49-49" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>Returns infinite repetition of the specified list.</p>
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '20', 20)" onmouseover="showTip(event, '20', 20)">
-            distributeList xs
-          </code>
-          <div class="tip" id="20">
-            <strong>Signature:</strong> xs:AsyncStream&lt;&#39;a&gt; list -&gt; AsyncStream&lt;&#39;a list&gt;<br />
-                          <strong>Type parameters:</strong> 'a          </div>
-        </td>
-        <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L172-172" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>Takes a list of streams and produces a stream of lists.</p>
 
         </td>
       </tr>
@@ -128,18 +76,19 @@
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '21', 21)" onmouseover="showTip(event, '21', 21)">
-            drop n s
+            create hd tl
           </code>
           <div class="tip" id="21">
-            <strong>Signature:</strong> n:int -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;a&gt;<br />
-                          <strong>Type parameters:</strong> 'a          </div>
+            <strong>Signature:</strong> hd:&#39;?7741 -&gt; tl:AsyncStream&lt;&#39;?7741&gt; -&gt; Async&lt;AsyncStreamNode&lt;&#39;?7741&gt;&gt;<br />
+                          <strong>Type parameters:</strong> '?7741          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L115-115" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L38-38" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Drops the first n items from the stream.</p>
+          <p>Creates an async stream given a head and tail.</p>
+
 
         </td>
       </tr>
@@ -147,18 +96,19 @@
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '22', 22)" onmouseover="showTip(event, '22', 22)">
-            filterAsync p s
+            cycleList xs
           </code>
           <div class="tip" id="22">
-            <strong>Signature:</strong> p:(&#39;a -&gt; Async&lt;bool&gt;) -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;a&gt;<br />
+            <strong>Signature:</strong> xs:&#39;a list -&gt; AsyncStream&lt;&#39;a&gt;<br />
                           <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L128-128" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L50-50" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Filters a stream based on the specified predicate.</p>
+          <p>Returns infinite repetition of the specified list.</p>
+
 
         </td>
       </tr>
@@ -166,18 +116,19 @@
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '23', 23)" onmouseover="showTip(event, '23', 23)">
-            head s
+            distributeList xs
           </code>
           <div class="tip" id="23">
-            <strong>Signature:</strong> s:AsyncStream&lt;&#39;a&gt; -&gt; Async&lt;&#39;a&gt;<br />
+            <strong>Signature:</strong> xs:AsyncStream&lt;&#39;a&gt; list -&gt; AsyncStream&lt;&#39;a list&gt;<br />
                           <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L79-79" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L174-174" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Returns the first element of the stream.</p>
+          <p>Takes a list of streams and produces a stream of lists.</p>
+
 
         </td>
       </tr>
@@ -185,18 +136,19 @@
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '24', 24)" onmouseover="showTip(event, '24', 24)">
-            iterAsync f s
+            drop n s
           </code>
           <div class="tip" id="24">
-            <strong>Signature:</strong> f:(&#39;a -&gt; Async&lt;unit&gt;) -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; Async&lt;unit&gt;<br />
+            <strong>Signature:</strong> n:int -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;a&gt;<br />
                           <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L159-159" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L117-117" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Creates a computation which applies the function f to elements of the stream forever.</p>
+          <p>Drops the first n items from the stream.</p>
+
 
         </td>
       </tr>
@@ -204,18 +156,19 @@
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '25', 25)" onmouseover="showTip(event, '25', 25)">
-            iterate f a
+            filterAsync p s
           </code>
           <div class="tip" id="25">
-            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;a) -&gt; a:&#39;a -&gt; AsyncStream&lt;&#39;a&gt;<br />
+            <strong>Signature:</strong> p:(&#39;a -&gt; Async&lt;bool&gt;) -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;a&gt;<br />
                           <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L74-74" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L130-130" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Produces the infinite sequence of repeated applications of f.</p>
+          <p>Filters a stream based on the specified predicate.</p>
+
 
         </td>
       </tr>
@@ -223,18 +176,19 @@
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '26', 26)" onmouseover="showTip(event, '26', 26)">
-            mapAsync f s
+            head s
           </code>
           <div class="tip" id="26">
-            <strong>Signature:</strong> f:(&#39;a -&gt; Async&lt;&#39;b&gt;) -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;b&gt;<br />
-                          <strong>Type parameters:</strong> 'a, 'b          </div>
+            <strong>Signature:</strong> s:AsyncStream&lt;&#39;a&gt; -&gt; Async&lt;&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L91-91" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L80-80" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Maps a function over an async stream.</p>
+          <p>Returns the first element of the stream.</p>
+
 
         </td>
       </tr>
@@ -242,19 +196,19 @@
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '27', 27)" onmouseover="showTip(event, '27', 27)">
-            mapAsyncSeq f s
+            iterAsync f s
           </code>
           <div class="tip" id="27">
-            <strong>Signature:</strong> f:(&#39;a -&gt; AsyncSeq&lt;&#39;b&gt;) -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;b&gt;<br />
-                          <strong>Type parameters:</strong> 'a, 'b          </div>
+            <strong>Signature:</strong> f:(&#39;a -&gt; Async&lt;unit&gt;) -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; Async&lt;unit&gt;<br />
+                          <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L99-99" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L161-161" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Maps each element of an async stream onto an async sequences returning a stream
-containing consecutive elements of the genereated async sequences.</p>
+          <p>Creates a computation which applies the function f to elements of the stream forever.</p>
+
 
         </td>
       </tr>
@@ -262,18 +216,19 @@ containing consecutive elements of the genereated async sequences.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '28', 28)" onmouseover="showTip(event, '28', 28)">
-            prefixAsyncSeq s a
+            iterate f a
           </code>
           <div class="tip" id="28">
-            <strong>Signature:</strong> s:AsyncSeq&lt;&#39;a&gt; -&gt; a:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;a&gt;<br />
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;a) -&gt; a:&#39;a -&gt; AsyncStream&lt;&#39;a&gt;<br />
                           <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L62-62" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L75-75" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Prepends an async sequence to a stream.</p>
+          <p>Produces the infinite sequence of repeated applications of f.</p>
+
 
         </td>
       </tr>
@@ -281,18 +236,19 @@ containing consecutive elements of the genereated async sequences.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '29', 29)" onmouseover="showTip(event, '29', 29)">
-            prefixList xs a
+            mapAsync f s
           </code>
           <div class="tip" id="29">
-            <strong>Signature:</strong> xs:&#39;a list -&gt; a:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;a&gt;<br />
-                          <strong>Type parameters:</strong> 'a          </div>
+            <strong>Signature:</strong> f:(&#39;a -&gt; Async&lt;&#39;b&gt;) -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;b&gt;<br />
+                          <strong>Type parameters:</strong> 'a, 'b          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L56-56" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L92-92" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Prepends a list to a stream.</p>
+          <p>Maps a function over an async stream.</p>
+
 
         </td>
       </tr>
@@ -300,18 +256,20 @@ containing consecutive elements of the genereated async sequences.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '30', 30)" onmouseover="showTip(event, '30', 30)">
-            repeat a
+            mapAsyncSeq f s
           </code>
           <div class="tip" id="30">
-            <strong>Signature:</strong> a:&#39;a -&gt; AsyncStream&lt;&#39;a&gt;<br />
-                          <strong>Type parameters:</strong> 'a          </div>
+            <strong>Signature:</strong> f:(&#39;a -&gt; AsyncSeq&lt;&#39;b&gt;) -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;b&gt;<br />
+                          <strong>Type parameters:</strong> 'a, 'b          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L41-41" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L100-100" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Creates an async stream which repeatedly returns the provided value.</p>
+          <p>Maps each element of an async stream onto an async sequences returning a stream
+containing consecutive elements of the genereated async sequences.</p>
+
 
         </td>
       </tr>
@@ -319,19 +277,19 @@ containing consecutive elements of the genereated async sequences.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '31', 31)" onmouseover="showTip(event, '31', 31)">
-            scanAsync f z s
+            prefixAsyncSeq s a
           </code>
           <div class="tip" id="31">
-            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;b -&gt; Async&lt;&#39;b&gt;) -&gt; z:&#39;b -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;b&gt;<br />
-                          <strong>Type parameters:</strong> 'a, 'b          </div>
+            <strong>Signature:</strong> s:AsyncSeq&lt;&#39;a&gt; -&gt; a:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L151-151" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L63-63" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Scans the stream applying the specified function to consecutive elements and
-returning the stream of results.</p>
+          <p>Prepends an async sequence to a stream.</p>
+
 
         </td>
       </tr>
@@ -339,19 +297,19 @@ returning the stream of results.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '32', 32)" onmouseover="showTip(event, '32', 32)">
-            splitAtList n s
+            prefixList xs a
           </code>
           <div class="tip" id="32">
-            <strong>Signature:</strong> n:int -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; Async&lt;&#39;a list * AsyncStream&lt;&#39;a&gt;&gt;<br />
+            <strong>Signature:</strong> xs:&#39;a list -&gt; a:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;a&gt;<br />
                           <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L121-121" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L57-57" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Returns a pair consisting of the prefix of the stream of the specified length
-and the remaining stream immediately following this prefix.</p>
+          <p>Prepends a list to a stream.</p>
+
 
         </td>
       </tr>
@@ -359,18 +317,19 @@ and the remaining stream immediately following this prefix.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '33', 33)" onmouseover="showTip(event, '33', 33)">
-            tail s
+            repeat a
           </code>
           <div class="tip" id="33">
-            <strong>Signature:</strong> s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;a&gt;<br />
+            <strong>Signature:</strong> a:&#39;a -&gt; AsyncStream&lt;&#39;a&gt;<br />
                           <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L83-83" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L42-42" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Creates a stream which skips the first element of the provided stream.</p>
+          <p>Creates an async stream which repeatedly returns the provided value.</p>
+
 
         </td>
       </tr>
@@ -378,18 +337,20 @@ and the remaining stream immediately following this prefix.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '34', 34)" onmouseover="showTip(event, '34', 34)">
-            tails s
+            scanAsync f z s
           </code>
           <div class="tip" id="34">
-            <strong>Signature:</strong> s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;AsyncStream&lt;&#39;a&gt;&gt;<br />
-                          <strong>Type parameters:</strong> 'a          </div>
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;b -&gt; Async&lt;&#39;b&gt;) -&gt; z:&#39;b -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;b&gt;<br />
+                          <strong>Type parameters:</strong> 'a, 'b          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L87-87" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L153-153" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Creates a stream of tails of the specified stream.</p>
+          <p>Scans the stream applying the specified function to consecutive elements and
+returning the stream of results.</p>
+
 
         </td>
       </tr>
@@ -397,18 +358,20 @@ and the remaining stream immediately following this prefix.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '35', 35)" onmouseover="showTip(event, '35', 35)">
-            take n s
+            splitAtList n s
           </code>
           <div class="tip" id="35">
-            <strong>Signature:</strong> n:int -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncSeq&lt;&#39;a&gt;<br />
+            <strong>Signature:</strong> n:int -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; Async&lt;&#39;a list * AsyncStream&lt;&#39;a&gt;&gt;<br />
                           <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L107-107" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L123-123" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Creates an async sequence which iterates through the first n elements from the stream.</p>
+          <p>Returns a pair consisting of the prefix of the stream of the specified length
+and the remaining stream immediately following this prefix.</p>
+
 
         </td>
       </tr>
@@ -416,18 +379,19 @@ and the remaining stream immediately following this prefix.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '36', 36)" onmouseover="showTip(event, '36', 36)">
-            takeWhileAsync p s
+            tail s
           </code>
           <div class="tip" id="36">
-            <strong>Signature:</strong> p:(&#39;a -&gt; Async&lt;bool&gt;) -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncSeq&lt;&#39;a&gt;<br />
+            <strong>Signature:</strong> s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;&#39;a&gt;<br />
                           <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L111-111" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L84-84" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Takes elements from the stream until the specified predicate is no longer satisfied.</p>
+          <p>Creates a stream which skips the first element of the provided stream.</p>
+
 
         </td>
       </tr>
@@ -435,18 +399,19 @@ and the remaining stream immediately following this prefix.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '37', 37)" onmouseover="showTip(event, '37', 37)">
-            toAsyncSeq s
+            tails s
           </code>
           <div class="tip" id="37">
-            <strong>Signature:</strong> s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncSeq&lt;&#39;a&gt;<br />
+            <strong>Signature:</strong> s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncStream&lt;AsyncStream&lt;&#39;a&gt;&gt;<br />
                           <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L103-103" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L88-88" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Creates an infinite async sequence from the stream.</p>
+          <p>Creates a stream of tails of the specified stream.</p>
+
 
         </td>
       </tr>
@@ -454,18 +419,19 @@ and the remaining stream immediately following this prefix.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '38', 38)" onmouseover="showTip(event, '38', 38)">
-            unfoldAsync f z
+            take n s
           </code>
           <div class="tip" id="38">
-            <strong>Signature:</strong> f:(&#39;s -&gt; Async&lt;&#39;a * &#39;s&gt;) -&gt; z:&#39;s -&gt; AsyncStream&lt;&#39;a&gt;<br />
-                          <strong>Type parameters:</strong> 's, 'a          </div>
+            <strong>Signature:</strong> n:int -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncSeq&lt;&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L45-45" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L109-109" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Generates an async stream.</p>
+          <p>Creates an async sequence which iterates through the first n elements from the stream.</p>
+
 
         </td>
       </tr>
@@ -473,18 +439,19 @@ and the remaining stream immediately following this prefix.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '39', 39)" onmouseover="showTip(event, '39', 39)">
-            zip a b
+            takeWhileAsync p s
           </code>
           <div class="tip" id="39">
-            <strong>Signature:</strong> a:AsyncStream&lt;&#39;a&gt; -&gt; b:AsyncStream&lt;&#39;b&gt; -&gt; AsyncStream&lt;&#39;a * &#39;b&gt;<br />
-                          <strong>Type parameters:</strong> 'a, 'b          </div>
+            <strong>Signature:</strong> p:(&#39;a -&gt; Async&lt;bool&gt;) -&gt; s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncSeq&lt;&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L168-168" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L113-113" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Zips two streams into a stream of pairs.</p>
+          <p>Takes elements from the stream until the specified predicate is no longer satisfied.</p>
+
 
         </td>
       </tr>
@@ -492,18 +459,79 @@ and the remaining stream immediately following this prefix.</p>
         <td class="member-name">
 
           <code onmouseout="hideTip(event, '40', 40)" onmouseover="showTip(event, '40', 40)">
-            zipWith f a b
+            toAsyncSeq s
           </code>
           <div class="tip" id="40">
+            <strong>Signature:</strong> s:AsyncStream&lt;&#39;a&gt; -&gt; AsyncSeq&lt;&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L104-104" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Creates an infinite async sequence from the stream.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '41', 41)" onmouseover="showTip(event, '41', 41)">
+            unfoldAsync f z
+          </code>
+          <div class="tip" id="41">
+            <strong>Signature:</strong> f:(&#39;s -&gt; Async&lt;&#39;a * &#39;s&gt;) -&gt; z:&#39;s -&gt; AsyncStream&lt;&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 's, 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L46-46" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Generates an async stream.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '42', 42)" onmouseover="showTip(event, '42', 42)">
+            zip a b
+          </code>
+          <div class="tip" id="42">
+            <strong>Signature:</strong> a:AsyncStream&lt;&#39;a&gt; -&gt; b:AsyncStream&lt;&#39;b&gt; -&gt; AsyncStream&lt;&#39;a * &#39;b&gt;<br />
+                          <strong>Type parameters:</strong> 'a, 'b          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L170-170" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Zips two streams into a stream of pairs.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '43', 43)" onmouseover="showTip(event, '43', 43)">
+            zipWith f a b
+          </code>
+          <div class="tip" id="43">
             <strong>Signature:</strong> f:(&#39;a -&gt; &#39;b -&gt; &#39;c) -&gt; a:AsyncStream&lt;&#39;a&gt; -&gt; b:AsyncStream&lt;&#39;b&gt; -&gt; AsyncStream&lt;&#39;c&gt;<br />
                           <strong>Type parameters:</strong> 'a, 'b, 'c          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L163-163" class="github-link">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/AsyncStream.fs#L165-165" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Zips two streams using the specified function.</p>
+
 
         </td>
       </tr>
@@ -524,7 +552,7 @@ and the remaining stream immediately following this prefix.</p>
             <li class="divider"></li>
             <li class="nav-header">Documentation</li>
             <li><a href="/FSharpx.Async/terminology.html">Terminology</a></li>
-            <li><a href="http://fsprojects.github.io/FSharp.Control.AsyncSeq/index.html">FSharp.Control.AsyncSeq</a></li>           
+            <li><a href="/FSharpx.Async/library/AsyncSeq.html">AsyncSeq</a></li>           
             <li><a href="/FSharpx.Async/reference/index.html">API Reference</a></li>
           </ul>
         </div>

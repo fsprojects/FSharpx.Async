@@ -65,6 +65,7 @@
             <a href="fsharpx-control-agent-1.html">Agent<'T></a>
           </td>
           <td class="xmldoc"><p>Type alias for F# mailbox processor type</p>
+
 </td>
         </tr>
         <tr>
@@ -72,6 +73,7 @@
             <a href="fsharpx-control-asyncresult-1.html">AsyncResult<'T></a>
           </td>
           <td class="xmldoc"><p>Represents the reified result of an asynchronous computation</p>
+
 </td>
         </tr>
         <tr>
@@ -80,6 +82,7 @@
           </td>
           <td class="xmldoc"><p>A helper type to store a single result from an asynchronous computation and asynchronously
 access its result.</p>
+
 </td>
         </tr>
         <tr>
@@ -87,6 +90,7 @@ access its result.</p>
             <a href="fsharpx-control-asyncstream-1.html">AsyncStream<'a></a>
           </td>
           <td class="xmldoc"><p>An infinite async sequence.</p>
+
 </td>
         </tr>
         <tr>
@@ -94,14 +98,16 @@ access its result.</p>
             <a href="fsharpx-control-asyncstreamnode-1.html">AsyncStreamNode<'a></a>
           </td>
           <td class="xmldoc"><p>A node of an async stream consisting of an element and the rest of the stream.</p>
+
 </td>
         </tr>
         <tr>
           <td class="type-name">
             <a href="fsharpx-control-asyncstreamreader.html">AsyncStreamReader</a>
           </td>
-          <td class="xmldoc"><p>Implements a TextReader-like API that asynchronously reads characters from 
+          <td class="xmldoc"><p>Implements a TextReader-like API that asynchronously reads characters from
 a byte stream in a particular encoding.</p>
+
 </td>
         </tr>
         <tr>
@@ -115,8 +121,9 @@ a byte stream in a particular encoding.</p>
             <a href="fsharpx-control-autocancelagent-1.html">AutoCancelAgent<'T></a>
           </td>
           <td class="xmldoc"><p>Wrapper for the standard F# agent (MailboxProcessor) that
-supports stopping of the agent's body using the IDisposable 
+supports stopping of the agent's body using the IDisposable
 interface (the type automatically creates a cancellation token)</p>
+
 </td>
         </tr>
         <tr>
@@ -124,9 +131,10 @@ interface (the type automatically creates a cancellation token)</p>
             <a href="fsharpx-control-batchprocessingagent-1.html">BatchProcessingAgent<'T></a>
           </td>
           <td class="xmldoc"><p>Agent that can be used to implement batch processing. It creates groups
-of messages (added using the Enqueue method) and emits them using the 
-BatchProduced event. A group is produced when it reaches the maximal 
+of messages (added using the Enqueue method) and emits them using the
+BatchProduced event. A group is produced when it reaches the maximal
 size or after the timeout elapses.</p>
+
 </td>
         </tr>
         <tr>
@@ -134,9 +142,10 @@ size or after the timeout elapses.</p>
             <a href="fsharpx-control-blockingqueueagent-1.html">BlockingQueueAgent<'T></a>
           </td>
           <td class="xmldoc"><p>Agent that implements an asynchronous queue with blocking put
-and blocking get operation (this implements the producer-consumer 
+and blocking get operation (this implements the producer-consumer
 concurrent programming pattern). The constructor takes the maximal
 size of the buffer.</p>
+
 </td>
         </tr>
         <tr>
@@ -144,18 +153,20 @@ size of the buffer.</p>
             <a href="fsharpx-control-circularqueueagent-1.html">CircularQueueAgent<'T></a>
           </td>
           <td class="xmldoc"><p>Agent that implements an asynchronous circular buffer with blocking
-enqueue and blocking dequeue operation (this implements the producer-consumer 
+enqueue and blocking dequeue operation (this implements the producer-consumer
 concurrent programming pattern). The constructor takes the maximal
 size of the buffer.</p>
+
 </td>
         </tr>
         <tr>
           <td class="type-name">
             <a href="fsharpx-control-concurrentsetagent-1.html">ConcurrentSetAgent<'T></a>
           </td>
-          <td class="xmldoc"><p>Agent that implements a simple concurrent set. The agent exposes a 
+          <td class="xmldoc"><p>Agent that implements a simple concurrent set. The agent exposes a
 member that adds value to the set and returns whether the value
 was already present.</p>
+
 </td>
         </tr>
         <tr>
@@ -177,6 +188,7 @@ was already present.</p>
           <td class="xmldoc"><p>Union type that represents different messages that can be sent to the
 IObserver interface. The IObserver type is equivalent to a type that has
 just OnNext method that gets 'ObservableUpdate' as an argument.</p>
+
 </td>
         </tr>
         <tr>
@@ -190,9 +202,10 @@ just OnNext method that gets 'ObservableUpdate' as an argument.</p>
             <a href="fsharpx-control-slidingwindowagent-1.html">SlidingWindowAgent<'T></a>
           </td>
           <td class="xmldoc"><p>Agent that implements the "sliding window" functionality. It collects
-messages added using the Enqueue method and emits them in overlapping 
-groups of the specified size. For example, given [1,2,3,4,5...] and a 
+messages added using the Enqueue method and emits them in overlapping
+groups of the specified size. For example, given [1,2,3,4,5...] and a
 size 3, the produced groups will be [1,2,3], [2,3,4], [3,4,5], ...</p>
+
 </td>
         </tr>
         <tr>
@@ -210,6 +223,12 @@ size 3, the produced groups will be [1,2,3], [2,3,4], [3,4,5], ...</p>
     <tbody>
         <tr>
           <td class="module-name">
+            <a href="fsharpx-control-async.html">Async</a>
+          </td>
+          <td class="xmldoc"></td>
+        </tr>
+        <tr>
+          <td class="module-name">
             <a href="fsharpx-control-asyncextensions.html">AsyncExtensions</a>
           </td>
           <td class="xmldoc"></td>
@@ -225,6 +244,7 @@ size 3, the produced groups will be [1,2,3], [2,3,4], [3,4,5], ...</p>
             <a href="fsharpx-control-asyncstream.html">AsyncStream</a>
           </td>
           <td class="xmldoc"><p>Operations on async streams.</p>
+
 </td>
         </tr>
         <tr>
@@ -232,6 +252,7 @@ size 3, the produced groups will be [1,2,3], [2,3,4], [3,4,5], ...</p>
             <a href="fsharpx-control-asyncstreamnode.html">AsyncStreamNode</a>
           </td>
           <td class="xmldoc"><p>Operations on async stream nodes.</p>
+
 </td>
         </tr>
         <tr>
@@ -313,7 +334,7 @@ size 3, the produced groups will be [1,2,3], [2,3,4], [3,4,5], ...</p>
             <li class="divider"></li>
             <li class="nav-header">Documentation</li>
             <li><a href="/FSharpx.Async/terminology.html">Terminology</a></li>
-            <li><a href="http://fsprojects.github.io/FSharp.Control.AsyncSeq/index.html">FSharp.Control.AsyncSeq</a></li>           
+            <li><a href="/FSharpx.Async/library/AsyncSeq.html">AsyncSeq</a></li>           
             <li><a href="/FSharpx.Async/reference/index.html">API Reference</a></li>
           </ul>
         </div>

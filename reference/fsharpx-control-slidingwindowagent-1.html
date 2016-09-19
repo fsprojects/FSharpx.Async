@@ -36,11 +36,15 @@
 
 
 <h1>SlidingWindowAgent<'T></h1>
+<p>
+  <span>Namespace: FSharpx.Control</span><br />
+</p>
 <div class="xmldoc">
 <p>Agent that implements the "sliding window" functionality. It collects
-messages added using the Enqueue method and emits them in overlapping 
-groups of the specified size. For example, given [1,2,3,4,5...] and a 
+messages added using the Enqueue method and emits them in overlapping
+groups of the specified size. For example, given [1,2,3,4,5...] and a
 size 3, the produced groups will be [1,2,3], [2,3,4], [3,4,5], ...</p>
+
 </div>
   <h3>Constructors</h3>
   <table class="table table-bordered member-list">
@@ -51,10 +55,10 @@ size 3, the produced groups will be [1,2,3], [2,3,4], [3,4,5], ...</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '206', 206)" onmouseover="showTip(event, '206', 206)">
+          <code onmouseout="hideTip(event, '209', 209)" onmouseover="showTip(event, '209', 209)">
             new(windowSize, cancelToken)
           </code>
-          <div class="tip" id="206">
+          <div class="tip" id="209">
             <strong>Signature:</strong> (windowSize:int * cancelToken:CancellationToken option) -&gt; SlidingWindowAgent&lt;&#39;T&gt;<br />
                       </div>
         </td>
@@ -64,6 +68,7 @@ size 3, the produced groups will be [1,2,3], [2,3,4], [3,4,5], ...</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>.ctor</code></p>
         </td>
       </tr>
     </tbody>
@@ -77,10 +82,10 @@ size 3, the produced groups will be [1,2,3], [2,3,4], [3,4,5], ...</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '207', 207)" onmouseover="showTip(event, '207', 207)">
+          <code onmouseout="hideTip(event, '210', 210)" onmouseover="showTip(event, '210', 210)">
             add_WindowProduced(arg1)
           </code>
-          <div class="tip" id="207">
+          <div class="tip" id="210">
             <strong>Signature:</strong> (Handler&lt;&#39;T []&gt;) -&gt; unit<br />
                       </div>
         </td>
@@ -89,19 +94,20 @@ size 3, the produced groups will be [1,2,3], [2,3,4], [3,4,5], ...</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>The event is triggered when a group of messages is collected. 
+          <p>The event is triggered when a group of messages is collected.
 The size of the group is exactly 'count' and the values are
 returned in a fresh array.</p>
+
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '208', 208)" onmouseover="showTip(event, '208', 208)">
+          <code onmouseout="hideTip(event, '211', 211)" onmouseover="showTip(event, '211', 211)">
             Enqueue(v)
           </code>
-          <div class="tip" id="208">
+          <div class="tip" id="211">
             <strong>Signature:</strong> v:&#39;T -&gt; unit<br />
                       </div>
         </td>
@@ -112,15 +118,16 @@ returned in a fresh array.</p>
             </a>
           <p>Sends new message to the agent</p>
 
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '209', 209)" onmouseover="showTip(event, '209', 209)">
+          <code onmouseout="hideTip(event, '212', 212)" onmouseover="showTip(event, '212', 212)">
             remove_WindowProduced(arg1)
           </code>
-          <div class="tip" id="209">
+          <div class="tip" id="212">
             <strong>Signature:</strong> (Handler&lt;&#39;T []&gt;) -&gt; unit<br />
                       </div>
         </td>
@@ -129,19 +136,20 @@ returned in a fresh array.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>The event is triggered when a group of messages is collected. 
+          <p>The event is triggered when a group of messages is collected.
 The size of the group is exactly 'count' and the values are
 returned in a fresh array.</p>
+
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '210', 210)" onmouseover="showTip(event, '210', 210)">
+          <code onmouseout="hideTip(event, '213', 213)" onmouseover="showTip(event, '213', 213)">
             WindowProduced
           </code>
-          <div class="tip" id="210">
+          <div class="tip" id="213">
             <strong>Signature:</strong> IEvent&lt;&#39;T []&gt;<br />
                       </div>
         </td>
@@ -150,10 +158,12 @@ returned in a fresh array.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>The event is triggered when a group of messages is collected. 
+          <p>The event is triggered when a group of messages is collected.
 The size of the group is exactly 'count' and the values are
 returned in a fresh array.</p>
 
+
+              <p>CompiledName: <code>get_WindowProduced</code></p>
         </td>
       </tr>
     </tbody>
@@ -173,7 +183,7 @@ returned in a fresh array.</p>
             <li class="divider"></li>
             <li class="nav-header">Documentation</li>
             <li><a href="/FSharpx.Async/terminology.html">Terminology</a></li>
-            <li><a href="http://fsprojects.github.io/FSharp.Control.AsyncSeq/index.html">FSharp.Control.AsyncSeq</a></li>           
+            <li><a href="/FSharpx.Async/library/AsyncSeq.html">AsyncSeq</a></li>           
             <li><a href="/FSharpx.Async/reference/index.html">API Reference</a></li>
           </ul>
         </div>

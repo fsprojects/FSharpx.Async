@@ -36,9 +36,13 @@
 
 
 <h1>AsyncStreamReader</h1>
+<p>
+  <span>Namespace: FSharpx.Control</span><br />
+</p>
 <div class="xmldoc">
-<p>Implements a TextReader-like API that asynchronously reads characters from 
+<p>Implements a TextReader-like API that asynchronously reads characters from
 a byte stream in a particular encoding.</p>
+
 </div>
   <h3>Constructors</h3>
   <table class="table table-bordered member-list">
@@ -49,10 +53,10 @@ a byte stream in a particular encoding.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '122', 122)" onmouseover="showTip(event, '122', 122)">
+          <code onmouseout="hideTip(event, '125', 125)" onmouseover="showTip(event, '125', 125)">
             new(...)
           </code>
-          <div class="tip" id="122">
+          <div class="tip" id="125">
             <strong>Signature:</strong> (stream:Stream * encoding:Encoding * detectEncodingFromByteOrderMarks:bool) -&gt; AsyncStreamReader<br />
                       </div>
         </td>
@@ -62,15 +66,16 @@ a byte stream in a particular encoding.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>.ctor</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '123', 123)" onmouseover="showTip(event, '123', 123)">
+          <code onmouseout="hideTip(event, '126', 126)" onmouseover="showTip(event, '126', 126)">
             new(stream, encoding)
           </code>
-          <div class="tip" id="123">
+          <div class="tip" id="126">
             <strong>Signature:</strong> (stream:Stream * encoding:Encoding) -&gt; AsyncStreamReader<br />
                       </div>
         </td>
@@ -80,15 +85,16 @@ a byte stream in a particular encoding.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>.ctor</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '124', 124)" onmouseover="showTip(event, '124', 124)">
+          <code onmouseout="hideTip(event, '127', 127)" onmouseover="showTip(event, '127', 127)">
             new(...)
           </code>
-          <div class="tip" id="124">
+          <div class="tip" id="127">
             <strong>Signature:</strong> (stream:Stream * detectEncodingFromByteOrderMarks:bool) -&gt; AsyncStreamReader<br />
                       </div>
         </td>
@@ -98,15 +104,16 @@ a byte stream in a particular encoding.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>.ctor</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '125', 125)" onmouseover="showTip(event, '125', 125)">
+          <code onmouseout="hideTip(event, '128', 128)" onmouseover="showTip(event, '128', 128)">
             new(stream)
           </code>
-          <div class="tip" id="125">
+          <div class="tip" id="128">
             <strong>Signature:</strong> stream:Stream -&gt; AsyncStreamReader<br />
                       </div>
         </td>
@@ -116,15 +123,16 @@ a byte stream in a particular encoding.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>.ctor</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '126', 126)" onmouseover="showTip(event, '126', 126)">
+          <code onmouseout="hideTip(event, '129', 129)" onmouseover="showTip(event, '129', 129)">
             new(...)
           </code>
-          <div class="tip" id="126">
+          <div class="tip" id="129">
             <strong>Signature:</strong> (stream:Stream * encoding:Encoding * detectEncodingFromByteOrderMarks:bool * bufferSize:int) -&gt; AsyncStreamReader<br />
                       </div>
         </td>
@@ -133,16 +141,17 @@ a byte stream in a particular encoding.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Creates a new AsyncStreamReader for the given stream.  The 
+          <p>Creates a new AsyncStreamReader for the given stream.  The
 character encoding is set by encoding and the buffer size,
 in number of 16-bit characters, is set by bufferSize.</p>
-
 <p>Note that detectEncodingFromByteOrderMarks is a very
-loose attempt at detecting the encoding by looking at the first 
+loose attempt at detecting the encoding by looking at the first
 3 bytes of the stream.  It will recognize UTF-8, little endian
 unicode, and big endian unicode text, but that's it.  If neither
 of those three match, it will use the Encoding you provided.</p>
 
+
+              <p>CompiledName: <code>.ctor</code></p>
         </td>
       </tr>
     </tbody>
@@ -156,10 +165,10 @@ of those three match, it will use the Encoding you provided.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '127', 127)" onmouseover="showTip(event, '127', 127)">
+          <code onmouseout="hideTip(event, '130', 130)" onmouseover="showTip(event, '130', 130)">
             BaseStream
           </code>
-          <div class="tip" id="127">
+          <div class="tip" id="130">
             <strong>Signature:</strong> Stream<br />
                       </div>
         </td>
@@ -169,15 +178,16 @@ of those three match, it will use the Encoding you provided.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>get_BaseStream</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '128', 128)" onmouseover="showTip(event, '128', 128)">
+          <code onmouseout="hideTip(event, '131', 131)" onmouseover="showTip(event, '131', 131)">
             Close()
           </code>
-          <div class="tip" id="128">
+          <div class="tip" id="131">
             <strong>Signature:</strong> unit -&gt; unit<br />
                       </div>
         </td>
@@ -192,10 +202,10 @@ of those three match, it will use the Encoding you provided.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '129', 129)" onmouseover="showTip(event, '129', 129)">
+          <code onmouseout="hideTip(event, '132', 132)" onmouseover="showTip(event, '132', 132)">
             CurrentEncoding
           </code>
-          <div class="tip" id="129">
+          <div class="tip" id="132">
             <strong>Signature:</strong> Encoding<br />
                       </div>
         </td>
@@ -205,15 +215,16 @@ of those three match, it will use the Encoding you provided.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>get_CurrentEncoding</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '130', 130)" onmouseover="showTip(event, '130', 130)">
+          <code onmouseout="hideTip(event, '133', 133)" onmouseover="showTip(event, '133', 133)">
             DiscardBufferedData()
           </code>
-          <div class="tip" id="130">
+          <div class="tip" id="133">
             <strong>Signature:</strong> unit -&gt; unit<br />
                       </div>
         </td>
@@ -222,23 +233,24 @@ of those three match, it will use the Encoding you provided.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>. DiscardBufferedData tells StreamReader to throw away its internal 
+          <p>. DiscardBufferedData tells StreamReader to throw away its internal
 . buffer contents.  This is useful if the user needs to seek on the
- underlying stream to a known location then wants the StreamReader 
- to start reading from this new point.  This method should be called
- very sparingly, if ever, since it can lead to very poor performance.
- However, it may be the only way of handling some scenarios where
- users need to re-read the contents of a StreamReader a second time.</p>
+underlying stream to a known location then wants the StreamReader
+to start reading from this new point.  This method should be called
+very sparingly, if ever, since it can lead to very poor performance.
+However, it may be the only way of handling some scenarios where
+users need to re-read the contents of a StreamReader a second time.</p>
+
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '131', 131)" onmouseover="showTip(event, '131', 131)">
+          <code onmouseout="hideTip(event, '134', 134)" onmouseover="showTip(event, '134', 134)">
             EndOfStream
           </code>
-          <div class="tip" id="131">
+          <div class="tip" id="134">
             <strong>Signature:</strong> Async&lt;bool&gt;<br />
                       </div>
         </td>
@@ -248,19 +260,20 @@ of those three match, it will use the Encoding you provided.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>An async that produces true if the reader is at the end of stream and false otherwise</p>
-
-<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will 
+<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will
 yield different results.</p>
 
+
+              <p>CompiledName: <code>get_EndOfStream</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '132', 132)" onmouseover="showTip(event, '132', 132)">
+          <code onmouseout="hideTip(event, '135', 135)" onmouseover="showTip(event, '135', 135)">
             Peek()
           </code>
-          <div class="tip" id="132">
+          <div class="tip" id="135">
             <strong>Signature:</strong> unit -&gt; Async&lt;int&gt;<br />
                       </div>
         </td>
@@ -270,19 +283,19 @@ yield different results.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Creates an async that produces next character from the stream without advancing the stream</p>
-
-<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will 
+<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will
 yield different results.</p>
+
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '133', 133)" onmouseover="showTip(event, '133', 133)">
+          <code onmouseout="hideTip(event, '136', 136)" onmouseover="showTip(event, '136', 136)">
             Read(buffer, index, count)
           </code>
-          <div class="tip" id="133">
+          <div class="tip" id="136">
             <strong>Signature:</strong> (buffer:char [] * index:int * count:int) -&gt; Async&lt;int&gt;<br />
                       </div>
         </td>
@@ -291,21 +304,21 @@ yield different results.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Creates an async that reads all the charactes that are avilable in the stream up to <c>count</c characters and puts them 
+          <p>Creates an async that reads all the charactes that are avilable in the stream up to <c>count</c characters and puts them
 into <c>buffer</c> starting at <c>index</c>. The async returns the number of characters that are read.</p>
-
-<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will 
+<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will
 yield different results.</p>
+
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '134', 134)" onmouseover="showTip(event, '134', 134)">
+          <code onmouseout="hideTip(event, '137', 137)" onmouseover="showTip(event, '137', 137)">
             Read()
           </code>
-          <div class="tip" id="134">
+          <div class="tip" id="137">
             <strong>Signature:</strong> unit -&gt; Async&lt;char&gt;<br />
                       </div>
         </td>
@@ -315,19 +328,19 @@ yield different results.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Creates an async that reads next character from the stream</p>
-
-<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will 
+<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will
 yield different results.</p>
+
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '135', 135)" onmouseover="showTip(event, '135', 135)">
+          <code onmouseout="hideTip(event, '138', 138)" onmouseover="showTip(event, '138', 138)">
             ReadExactly(buffer, index, count)
           </code>
-          <div class="tip" id="135">
+          <div class="tip" id="138">
             <strong>Signature:</strong> (buffer:char [] * index:int * count:int) -&gt; Async&lt;int&gt;<br />
                       </div>
         </td>
@@ -336,22 +349,22 @@ yield different results.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Creates an async that reads exactly <c>count</c> characters from the stream unless end of stream is reached and puts them 
+          <p>Creates an async that reads exactly <c>count</c> characters from the stream unless end of stream is reached and puts them
 into <c>buffer</c> starting at <c>index</c>. The async returns the number of characters that are read (if end-of-stream is not reached
 that will be <c>count</c></p>
-
-<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will 
+<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will
 yield different results.</p>
+
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '136', 136)" onmouseover="showTip(event, '136', 136)">
+          <code onmouseout="hideTip(event, '139', 139)" onmouseover="showTip(event, '139', 139)">
             ReadLine()
           </code>
-          <div class="tip" id="136">
+          <div class="tip" id="139">
             <strong>Signature:</strong> unit -&gt; Async&lt;string&gt;<br />
                       </div>
         </td>
@@ -361,19 +374,19 @@ yield different results.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Creates an async that reads next line from the stream</p>
-
-<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will 
+<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will
 yield different results.</p>
+
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '137', 137)" onmouseover="showTip(event, '137', 137)">
+          <code onmouseout="hideTip(event, '140', 140)" onmouseover="showTip(event, '140', 140)">
             ReadToEnd()
           </code>
-          <div class="tip" id="137">
+          <div class="tip" id="140">
             <strong>Signature:</strong> unit -&gt; Async&lt;string&gt;<br />
                       </div>
         </td>
@@ -383,9 +396,9 @@ yield different results.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Creates an async that read all characters in the stream up to the end.</p>
-
-<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will 
+<p>Note that when the async is run it reflects the reader state at the time of running; multiple runs will
 yield different results.</p>
+
 
         </td>
       </tr>
@@ -406,7 +419,7 @@ yield different results.</p>
             <li class="divider"></li>
             <li class="nav-header">Documentation</li>
             <li><a href="/FSharpx.Async/terminology.html">Terminology</a></li>
-            <li><a href="http://fsprojects.github.io/FSharp.Control.AsyncSeq/index.html">FSharp.Control.AsyncSeq</a></li>           
+            <li><a href="/FSharpx.Async/library/AsyncSeq.html">AsyncSeq</a></li>           
             <li><a href="/FSharpx.Async/reference/index.html">API Reference</a></li>
           </ul>
         </div>

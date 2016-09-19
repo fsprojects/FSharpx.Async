@@ -36,11 +36,15 @@
 
 
 <h1>BatchProcessingAgent<'T></h1>
+<p>
+  <span>Namespace: FSharpx.Control</span><br />
+</p>
 <div class="xmldoc">
 <p>Agent that can be used to implement batch processing. It creates groups
-of messages (added using the Enqueue method) and emits them using the 
-BatchProduced event. A group is produced when it reaches the maximal 
+of messages (added using the Enqueue method) and emits them using the
+BatchProduced event. A group is produced when it reaches the maximal
 size or after the timeout elapses.</p>
+
 </div>
   <h3>Constructors</h3>
   <table class="table table-bordered member-list">
@@ -51,10 +55,10 @@ size or after the timeout elapses.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '160', 160)" onmouseover="showTip(event, '160', 160)">
+          <code onmouseout="hideTip(event, '163', 163)" onmouseover="showTip(event, '163', 163)">
             new(batchSize, timeout)
           </code>
-          <div class="tip" id="160">
+          <div class="tip" id="163">
             <strong>Signature:</strong> (batchSize:int * timeout:int) -&gt; BatchProcessingAgent&lt;&#39;T&gt;<br />
                       </div>
         </td>
@@ -64,6 +68,7 @@ size or after the timeout elapses.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>.ctor</code></p>
         </td>
       </tr>
     </tbody>
@@ -77,69 +82,8 @@ size or after the timeout elapses.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '161', 161)" onmouseover="showTip(event, '161', 161)">
-            add_BatchProduced(arg1)
-          </code>
-          <div class="tip" id="161">
-            <strong>Signature:</strong> (Handler&lt;&#39;T []&gt;) -&gt; unit<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BatchProcessingAgent.fs#L45-45" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>The event is triggered when a group of messages is collected. The
-group is not empty, but may not be of the specified maximal size
-(when the timeout elapses before enough messages is collected)</p>
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '162', 162)" onmouseover="showTip(event, '162', 162)">
-            BatchProduced
-          </code>
-          <div class="tip" id="162">
-            <strong>Signature:</strong> IEvent&lt;&#39;T []&gt;<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BatchProcessingAgent.fs#L45-45" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>The event is triggered when a group of messages is collected. The
-group is not empty, but may not be of the specified maximal size
-(when the timeout elapses before enough messages is collected)</p>
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '163', 163)" onmouseover="showTip(event, '163', 163)">
-            Enqueue(v)
-          </code>
-          <div class="tip" id="163">
-            <strong>Signature:</strong> v:&#39;T -&gt; unit<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BatchProcessingAgent.fs#L48-48" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>Sends new message to the agent</p>
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
           <code onmouseout="hideTip(event, '164', 164)" onmouseover="showTip(event, '164', 164)">
-            remove_BatchProduced(arg1)
+            add_BatchProduced(arg1)
           </code>
           <div class="tip" id="164">
             <strong>Signature:</strong> (Handler&lt;&#39;T []&gt;) -&gt; unit<br />
@@ -153,6 +97,72 @@ group is not empty, but may not be of the specified maximal size
           <p>The event is triggered when a group of messages is collected. The
 group is not empty, but may not be of the specified maximal size
 (when the timeout elapses before enough messages is collected)</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '165', 165)" onmouseover="showTip(event, '165', 165)">
+            BatchProduced
+          </code>
+          <div class="tip" id="165">
+            <strong>Signature:</strong> IEvent&lt;&#39;T []&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BatchProcessingAgent.fs#L45-45" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>The event is triggered when a group of messages is collected. The
+group is not empty, but may not be of the specified maximal size
+(when the timeout elapses before enough messages is collected)</p>
+
+
+              <p>CompiledName: <code>get_BatchProduced</code></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '166', 166)" onmouseover="showTip(event, '166', 166)">
+            Enqueue(v)
+          </code>
+          <div class="tip" id="166">
+            <strong>Signature:</strong> v:&#39;T -&gt; unit<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BatchProcessingAgent.fs#L48-48" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Sends new message to the agent</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '167', 167)" onmouseover="showTip(event, '167', 167)">
+            remove_BatchProduced(arg1)
+          </code>
+          <div class="tip" id="167">
+            <strong>Signature:</strong> (Handler&lt;&#39;T []&gt;) -&gt; unit<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpx.Async/tree/master/src/FSharpx.Async/BatchProcessingAgent.fs#L45-45" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>The event is triggered when a group of messages is collected. The
+group is not empty, but may not be of the specified maximal size
+(when the timeout elapses before enough messages is collected)</p>
+
 
         </td>
       </tr>
@@ -173,7 +183,7 @@ group is not empty, but may not be of the specified maximal size
             <li class="divider"></li>
             <li class="nav-header">Documentation</li>
             <li><a href="/FSharpx.Async/terminology.html">Terminology</a></li>
-            <li><a href="http://fsprojects.github.io/FSharp.Control.AsyncSeq/index.html">FSharp.Control.AsyncSeq</a></li>           
+            <li><a href="/FSharpx.Async/library/AsyncSeq.html">AsyncSeq</a></li>           
             <li><a href="/FSharpx.Async/reference/index.html">API Reference</a></li>
           </ul>
         </div>

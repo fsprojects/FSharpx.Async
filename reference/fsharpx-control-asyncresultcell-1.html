@@ -36,9 +36,13 @@
 
 
 <h1>AsyncResultCell<'T></h1>
+<p>
+  <span>Namespace: FSharpx.Control</span><br />
+</p>
 <div class="xmldoc">
 <p>A helper type to store a single result from an asynchronous computation and asynchronously
 access its result.</p>
+
 </div>
   <h3>Constructors</h3>
   <table class="table table-bordered member-list">
@@ -49,10 +53,10 @@ access its result.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '118', 118)" onmouseover="showTip(event, '118', 118)">
+          <code onmouseout="hideTip(event, '121', 121)" onmouseover="showTip(event, '121', 121)">
             new()
           </code>
-          <div class="tip" id="118">
+          <div class="tip" id="121">
             <strong>Signature:</strong> unit -&gt; AsyncResultCell&lt;&#39;T&gt;<br />
                       </div>
         </td>
@@ -63,6 +67,8 @@ access its result.</p>
             </a>
           <p>Create a new result cell</p>
 
+
+              <p>CompiledName: <code>.ctor</code></p>
         </td>
       </tr>
     </tbody>
@@ -76,10 +82,10 @@ access its result.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '119', 119)" onmouseover="showTip(event, '119', 119)">
+          <code onmouseout="hideTip(event, '122', 122)" onmouseover="showTip(event, '122', 122)">
             AsyncResult
           </code>
-          <div class="tip" id="119">
+          <div class="tip" id="122">
             <strong>Signature:</strong> Async&lt;&#39;T&gt;<br />
                       </div>
         </td>
@@ -90,15 +96,17 @@ access its result.</p>
             </a>
           <p>Wait for the result and commit it</p>
 
+
+              <p>CompiledName: <code>get_AsyncResult</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '120', 120)" onmouseover="showTip(event, '120', 120)">
+          <code onmouseout="hideTip(event, '123', 123)" onmouseover="showTip(event, '123', 123)">
             RegisterResult(arg1, reuseThread)
           </code>
-          <div class="tip" id="120">
+          <div class="tip" id="123">
             <strong>Signature:</strong> (AsyncResult&lt;&#39;T&gt; * reuseThread:bool option) -&gt; unit<br />
                       </div>
         </td>
@@ -108,8 +116,8 @@ access its result.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Record the result in the AsyncResultCell. Subsequent sets of the result are ignored.</p>
-
 <p>This may result in the scheduled resumption of a waiting asynchronous operation</p>
+
 
         </td>
       </tr>
@@ -130,7 +138,7 @@ access its result.</p>
             <li class="divider"></li>
             <li class="nav-header">Documentation</li>
             <li><a href="/FSharpx.Async/terminology.html">Terminology</a></li>
-            <li><a href="http://fsprojects.github.io/FSharp.Control.AsyncSeq/index.html">FSharp.Control.AsyncSeq</a></li>           
+            <li><a href="/FSharpx.Async/library/AsyncSeq.html">AsyncSeq</a></li>           
             <li><a href="/FSharpx.Async/reference/index.html">API Reference</a></li>
           </ul>
         </div>

@@ -36,11 +36,15 @@
 
 
 <h1>BlockingQueueAgent<'T></h1>
+<p>
+  <span>Namespace: FSharpx.Control</span><br />
+</p>
 <div class="xmldoc">
 <p>Agent that implements an asynchronous queue with blocking put
-and blocking get operation (this implements the producer-consumer 
+and blocking get operation (this implements the producer-consumer
 concurrent programming pattern). The constructor takes the maximal
 size of the buffer.</p>
+
 </div>
   <h3>Constructors</h3>
   <table class="table table-bordered member-list">
@@ -51,10 +55,10 @@ size of the buffer.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '165', 165)" onmouseover="showTip(event, '165', 165)">
+          <code onmouseout="hideTip(event, '168', 168)" onmouseover="showTip(event, '168', 168)">
             new(maxLength)
           </code>
-          <div class="tip" id="165">
+          <div class="tip" id="168">
             <strong>Signature:</strong> maxLength:int -&gt; BlockingQueueAgent&lt;&#39;T&gt;<br />
                       </div>
         </td>
@@ -64,6 +68,7 @@ size of the buffer.</p>
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+              <p>CompiledName: <code>.ctor</code></p>
         </td>
       </tr>
     </tbody>
@@ -77,10 +82,10 @@ size of the buffer.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '166', 166)" onmouseover="showTip(event, '166', 166)">
+          <code onmouseout="hideTip(event, '169', 169)" onmouseover="showTip(event, '169', 169)">
             Add(v)
           </code>
-          <div class="tip" id="166">
+          <div class="tip" id="169">
             <strong>Signature:</strong> v:&#39;T -&gt; unit<br />
                       </div>
         </td>
@@ -94,15 +99,16 @@ there is a place for the item. If the queue is full, the operation
 will block until some items are removed. This overload does not
 signal the caller that the item has been added.</p>
 
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '167', 167)" onmouseover="showTip(event, '167', 167)">
+          <code onmouseout="hideTip(event, '170', 170)" onmouseover="showTip(event, '170', 170)">
             AsyncAdd(v, timeout)
           </code>
-          <div class="tip" id="167">
+          <div class="tip" id="170">
             <strong>Signature:</strong> (v:&#39;T * timeout:int option) -&gt; Async&lt;unit&gt;<br />
                       </div>
         </td>
@@ -115,15 +121,16 @@ signal the caller that the item has been added.</p>
 there is a place for the item. If the queue is full, the operation
 will block until some items are removed.</p>
 
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '168', 168)" onmouseover="showTip(event, '168', 168)">
+          <code onmouseout="hideTip(event, '171', 171)" onmouseover="showTip(event, '171', 171)">
             AsyncGet(timeout)
           </code>
-          <div class="tip" id="168">
+          <div class="tip" id="171">
             <strong>Signature:</strong> (timeout:int option) -&gt; Async&lt;&#39;T&gt;<br />
                       </div>
         </td>
@@ -135,15 +142,16 @@ will block until some items are removed.</p>
           <p>Asynchronously gets item from the queue. If there are no items
 in the queue, the operation will block until items are added.</p>
 
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '169', 169)" onmouseover="showTip(event, '169', 169)">
+          <code onmouseout="hideTip(event, '172', 172)" onmouseover="showTip(event, '172', 172)">
             Count
           </code>
-          <div class="tip" id="169">
+          <div class="tip" id="172">
             <strong>Signature:</strong> int<br />
                       </div>
         </td>
@@ -154,15 +162,17 @@ in the queue, the operation will block until items are added.</p>
             </a>
           <p>Gets the number of elements currently waiting in the queue.</p>
 
+
+              <p>CompiledName: <code>get_Count</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '170', 170)" onmouseover="showTip(event, '170', 170)">
+          <code onmouseout="hideTip(event, '173', 173)" onmouseover="showTip(event, '173', 173)">
             Get(timeout)
           </code>
-          <div class="tip" id="170">
+          <div class="tip" id="173">
             <strong>Signature:</strong> (timeout:int option) -&gt; &#39;T<br />
                       </div>
         </td>
@@ -174,6 +184,7 @@ in the queue, the operation will block until items are added.</p>
           <p>Synchronously gets item from the queue. If there are no items
 in the queue, the operation will block until items are added.
 This method blocks until value is available!</p>
+
 
         </td>
       </tr>
@@ -194,7 +205,7 @@ This method blocks until value is available!</p>
             <li class="divider"></li>
             <li class="nav-header">Documentation</li>
             <li><a href="/FSharpx.Async/terminology.html">Terminology</a></li>
-            <li><a href="http://fsprojects.github.io/FSharp.Control.AsyncSeq/index.html">FSharp.Control.AsyncSeq</a></li>           
+            <li><a href="/FSharpx.Async/library/AsyncSeq.html">AsyncSeq</a></li>           
             <li><a href="/FSharpx.Async/reference/index.html">API Reference</a></li>
           </ul>
         </div>
