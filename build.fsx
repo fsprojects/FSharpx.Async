@@ -71,8 +71,7 @@ let release = LoadReleaseNotes "RELEASE_NOTES.md"
 let genFSAssemblyInfo (projectPath) =
     let projectName = System.IO.Path.GetFileNameWithoutExtension(projectPath)
     let folderName = System.IO.Path.GetDirectoryName(projectPath)
-    let basePath = "src" @@ folderName
-    let fileName = basePath @@ "AssemblyInfo.fs"
+    let fileName = folderName @@ "AssemblyInfo.fs"
     CreateFSharpAssemblyInfo fileName
       [ Attribute.Title (projectName)
         Attribute.Product project
@@ -104,11 +103,10 @@ Target "AssemblyInfo" (fun _ ->
 // Clean build results
 
 Target "Clean" (fun _ ->
-    CleanDirs ["bin"; "temp"]
-)
-
-Target "CleanDocs" (fun _ ->
-    CleanDirs ["docs/output"]
+    !! solutionFile
+    |> MSBuildRelease "" "Clean"
+    |> ignore
+    CleanDirs ["bin"; "docs/output"; "temp"]
 )
 
 // --------------------------------------------------------------------------------------
@@ -116,7 +114,7 @@ Target "CleanDocs" (fun _ ->
 
 Target "Build" (fun _ ->
     !! solutionFile
-    |> MSBuildRelease "" "Rebuild"
+    |> MSBuildRelease "" "Build"
     |> ignore
 )
 
@@ -139,6 +137,7 @@ Target "RunTests" (fun _ ->
 // the ability to step through the source code of external libraries https://github.com/ctaggart/SourceLink
 
 Target "SourceLink" (fun _ ->
+  if (environVar "APPVEYOR") <> "True" then
     let baseUrl = sprintf "%s/%s/{0}/%%var2%%" gitRaw (project.ToLower())
     use repo = new GitRepo(__SOURCE_DIRECTORY__)
     !! "src/**/*.fsproj"
@@ -150,7 +149,7 @@ Target "SourceLink" (fun _ ->
         proj.VerifyPdbChecksums files
         proj.CreateSrcSrv baseUrl repo.Revision (repo.Paths files)
         Pdbstr.exec proj.OutputFilePdb proj.OutputFilePdbSrcSrv
-    )
+  )
 )
 #endif
 
@@ -160,6 +159,7 @@ Target "SourceLink" (fun _ ->
 Target "NuGet" (fun _ ->
     Paket.Pack(fun p -> 
          { p with
+            OutputPath = "bin"
             Version = release.NugetVersion
             ReleaseNotes = toLines release.Notes})
 )
@@ -167,7 +167,7 @@ Target "NuGet" (fun _ ->
 Target "PublishNuget" (fun _ ->
     Paket.Push(fun p -> 
         { p with
-            WorkingDir = "./temp"  })
+            WorkingDir = "bin"  })
 )
 
 // --------------------------------------------------------------------------------------
@@ -315,30 +315,23 @@ Target "BuildPackage" DoNothing
 
 Target "All" DoNothing
 
-"Clean"
-  ==> "AssemblyInfo"
+"AssemblyInfo"
   ==> "Build"
   ==> "RunTests"
   =?> ("GenerateReferenceDocs",isLocalBuild)
   =?> ("GenerateDocs",isLocalBuild)
+#if MONO
+#else
+  =?> ("SourceLink", Pdbstr.tryFind().IsSome )
+#endif
+  ==> "NuGet"
+  ==> "BuildPackage"
   ==> "All"
   =?> ("ReleaseDocs",isLocalBuild)
 
-"All" 
-//#if MONO
-//#else
-//  =?> ("SourceLink", Pdbstr.tryFind().IsSome )
-//#endif
-  ==> "NuGet"
-  ==> "BuildPackage"
-
-"CleanDocs"
-  ==> "GenerateHelp"
+"GenerateHelp"
   ==> "GenerateReferenceDocs"
   ==> "GenerateDocs"
-
-"CleanDocs"
-  ==> "GenerateHelpDebug"
 
 "GenerateHelp"
   ==> "KeepRunning"
