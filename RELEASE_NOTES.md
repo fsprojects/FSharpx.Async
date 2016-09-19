@@ -1,3 +1,6 @@
+### 1.11.2 - 19.09.2016
+* Addded ParallelWithThrottle - https://github.com/fsprojects/FSharpx.Async/pull/31
+
 ### 1.11.1 - 26.03.2015
 * BUGFIX: AsyncSeq.toBlockingSeq does not hung forever if an exception is thrown and reraise it outside - https://github.com/fsprojects/FSharpx.Async/pull/21
 * Added Async.bindChoice, Async.ParallelIgnore, AsyncSeq.zipWithAsync, AsyncSeq.zappAsync, AsyncSeq.threadStateAsync, AsyncSeq.merge, AsyncSeq.traverseOptionAsync, AsyncSeq.traverseChoiceAsync
