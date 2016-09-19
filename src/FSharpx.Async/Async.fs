@@ -26,8 +26,8 @@ module Async =
         |> Async.Parallel
 
 
-    /// common code for ParallelCatchWithTrottle and ParallelWithTrottle
-    let private ParallelWithTrottleCustom tranformResult throttle computations =
+    /// common code for ParallelCatchWithThrottle and ParallelWithThrottle
+    let private ParallelWithThrottleCustom tranformResult throttle computations =
         use semaphore = new Semaphore(throttle, throttle)
         let throttleAsync a =
             async {
@@ -44,17 +44,17 @@ module Async =
     /// Creates an asynchronous computation that executes all the given asynchronous computations, initially queueing each as work items and using a fork/join pattern.
     /// This function doesn't throw exceptions, but instead returns an array of Choices.
     /// The paralelism is throttled, so that at most `throttle` computations run at one time.
-    let ParallelCatchWithTrottle throttle computations =
-        ParallelWithTrottleCustom id throttle computations
+    let ParallelCatchWithThrottle throttle computations =
+        ParallelWithThrottleCustom id throttle computations
 
 
     /// Creates an asynchronous computation that executes all the given asynchronous computations, initially queueing each as work items and using a fork/join pattern.
     /// The paralelism is throttled, so that at most `throttle` computations run at one time.
-    let ParallelWithTrottle throttle computations =
+    let ParallelWithThrottle throttle computations =
         let extractOrThrow = function
            | Choice1Of2 ok -> ok
            | Choice2Of2 ex -> raise ex
-        ParallelWithTrottleCustom extractOrThrow throttle computations
+        ParallelWithThrottleCustom extractOrThrow throttle computations
 
 
 [<AutoOpen>]
