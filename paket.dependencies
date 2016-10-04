@@ -2,6 +2,9 @@ source https://nuget.org/api/v2
 
 nuget Fsharp.Core redirects:force
 nuget FSharp.Formatting
+nuget FSharpx.Extras
+nuget FSharpx.Http
+nuget HtmlAgilityPack
 nuget NUnit ~> 2.6
 nuget NUnit.Runners ~> 2.6
 nuget FAKE
