@@ -335,7 +335,10 @@ Target "All" DoNothing
 
 "GenerateHelp"
   ==> "KeepRunning"
-    
+
+"Clean"
+  ==> "Release"
+
 "ReleaseDocs"
   ==> "Release"
 
