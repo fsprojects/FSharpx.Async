@@ -43,4 +43,11 @@ let ``Async.ParallelIgnore should cancel upon first cancellation``() =
     |> Async.RunSynchronously
   )
   |> ignore
-    
+
+[<Test>]
+let ``Parallel with throttle``() =
+  let nums = [|123|]
+  let work n = async.Return(n)
+  let tasks = nums |> Array.map work
+  let result = Async.ParallelWithThrottle 1 tasks
+  Assert.AreEqual(nums, result |> Async.RunSynchronously)

@@ -4,6 +4,7 @@
 // ----------------------------------------------------------------------------
 namespace FSharpx.Control
 open System
+open System.Runtime.ExceptionServices
 open System.Threading
 open System.Threading.Tasks
 
@@ -28,17 +29,19 @@ module Async =
 
     /// common code for ParallelCatchWithThrottle and ParallelWithThrottle
     let private ParallelWithThrottleCustom tranformResult throttle computations =
-        use semaphore = new Semaphore(throttle, throttle)
-        let throttleAsync a =
-            async {
-                do! Async.AwaitWaitHandle semaphore |> Async.Ignore
-                let! result = Async.Catch a
-                semaphore.Release() |> ignore
-                return tranformResult result
-            }
-        computations
-        |> Seq.map throttleAsync
-        |> Async.Parallel
+        async {
+            use semaphore = new SemaphoreSlim(throttle)
+            let throttleAsync a =
+                async {
+                    do! semaphore.WaitAsync() |> Async.AwaitTask
+                    let! result = Async.Catch a
+                    semaphore.Release() |> ignore
+                    return tranformResult result
+                }
+            return! computations
+                    |> Seq.map throttleAsync
+                    |> Async.Parallel
+        }
 
 
     /// Creates an asynchronous computation that executes all the given asynchronous computations, initially queueing each as work items and using a fork/join pattern.
@@ -53,7 +56,7 @@ module Async =
     let ParallelWithThrottle throttle computations =
         let extractOrThrow = function
            | Choice1Of2 ok -> ok
-           | Choice2Of2 ex -> raise ex
+           | Choice2Of2 ex -> ExceptionDispatchInfo.Capture(ex).Throw(); failwith "unreachable"
         ParallelWithThrottleCustom extractOrThrow throttle computations
 
 
