@@ -76,6 +76,7 @@
     <Compile Include="SlidingWindowAgent.fs" />
     <Compile Include="Observable.fs" />
     <Compile Include="Async.fs" />
+    <Compile Include="AsyncFunc.fs" />
     <Compile Include="AsyncOperations.fsi" />
     <Compile Include="AsyncOperations.fs" />
     <Compile Include="AsyncWorker.fsi" />
