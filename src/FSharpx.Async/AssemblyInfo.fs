@@ -5,10 +5,10 @@ open System.Reflection
 [<assembly: AssemblyTitleAttribute("FSharpx.Async")>]
 [<assembly: AssemblyProductAttribute("FSharpx.Async")>]
 [<assembly: AssemblyDescriptionAttribute("Async extensions for F#")>]
-[<assembly: AssemblyVersionAttribute("1.13.1")>]
-[<assembly: AssemblyFileVersionAttribute("1.13.1")>]
+[<assembly: AssemblyVersionAttribute("1.13.2")>]
+[<assembly: AssemblyFileVersionAttribute("1.13.2")>]
 do ()
 
 module internal AssemblyVersionInformation =
-    let [<Literal>] Version = "1.13.1"
-    let [<Literal>] InformationalVersion = "1.13.1"
+    let [<Literal>] Version = "1.13.2"
+    let [<Literal>] InformationalVersion = "1.13.2"
