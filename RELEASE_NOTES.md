@@ -1,4 +1,4 @@
-### 1.13.1 - 22.02.2017
+### 1.13.2 - 22.02.2017
 * BUGFIX: ParallelWithThrottle - https://github.com/fsprojects/FSharpx.Async/pull/35
 
 ### 1.13.0 - 19.09.2016
