@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\FSharpx.Async.Tests\AsyncTest.fs">
+      <Link>AsyncTest.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async.Tests\AsyncStreamTests.fs">
+      <Link>AsyncStreamTests.fs</Link>
+    </Compile>
+    <None Include="paket.references" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/FSharpx.Async.NetStandard\FSharpx.Async.fsproj" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+
+</Project>

@@ -31,12 +31,10 @@ let ``Async.ParallelIgnore should fail upon first failure``() =
 
 [<Test>]
 let ``Async.ParallelIgnore should cancel upon first cancellation``() =
-  let tcs = new TaskCompletionSource<unit>()
   let s =
     [
-      tcs.Task |> Async.AwaitTask
+      async { do Async.CancelDefaultToken() }
     ]
-  tcs.SetCanceled()
   Assert.Throws<OperationCanceledException>(fun() ->
     s
     |> Async.ParallelIgnore 1

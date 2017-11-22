@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FSharpx.Async.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\paket-files\netcore\fsprojects\FSharpx.Collections\src\FSharpx.Collections\CircularBuffer.fs">
+      <Paket>True</Paket>
+      <Link>CircularBuffer.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\AssemblyInfo.fs">
+      <Link>AssemblyInfo.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\Utils.fs">
+      <Link>Utils.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\Agent.fs">
+      <Link>Agent.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\AutoCancelAgent.fs">
+      <Link>AutoCancelAgent.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\BatchProcessingAgent.fs">
+      <Link>BatchProcessingAgent.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\BlockingQueueAgent.fs">
+      <Link>BlockingQueueAgent.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\CircularQueueAgent.fs">
+      <Link>CircularQueueAgent.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\ConcurrentSetAgent.fs">
+      <Link>ConcurrentSetAgent.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\SlidingWindowAgent.fs">
+      <Link>SlidingWindowAgent.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\Observable.fs">
+      <Link>Observable.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\Async.fs">
+      <Link>Async.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\AsyncOperations.fsi">
+      <Link>AsyncOperations.fsi</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\AsyncOperations.fs">
+      <Link>AsyncOperations.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\AsyncWorker.fsi">
+      <Link>AsyncWorker.fsi</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\AsyncWorker.fs">
+      <Link>AsyncWorker.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\AsyncStreamReader.fsi">
+      <Link>AsyncStreamReader.fsi</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\AsyncStreamReader.fs">
+      <Link>AsyncStreamReader.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\AsyncStream.fs">
+      <Link>AsyncStream.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpx.Async\Async.IO.fs">
+      <Link>Async.IO.fs</Link>
+    </Compile>
+    <None Include="paket.references" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

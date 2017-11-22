@@ -2,7 +2,7 @@
 // FAKE build script
 // --------------------------------------------------------------------------------------
 
-#r @"packages/FAKE/tools/FakeLib.dll"
+#r @"packages/build/FAKE/tools/FakeLib.dll"
 
 open Fake
 open Fake.Git
@@ -12,7 +12,7 @@ open System
 open System.IO
 #if MONO
 #else
-#load "packages/SourceLink.Fake/tools/Fake.fsx"
+#load "packages/build/SourceLink.Fake/tools/Fake.fsx"
 open SourceLink
 #endif
 
@@ -46,9 +46,10 @@ let tags = "F#, async, fsharpx"
 
 // File system information 
 let solutionFile  = "FSharpx.Async.sln"
+let netcoreSolutionFile  = "FSharpx.Async.netstandard.sln"
 
-// Pattern specifying assemblies to be tested using NUnit
-let testAssemblies = "tests/**/bin/Release/*Tests*.dll"
+// Pattern specifying full-framework assemblies to be tested using NUnit
+let fullFrameworkTestAssemblies = "tests/FSharpx.Async.Tests/bin/Release/*Tests*.dll"
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
@@ -79,24 +80,9 @@ let genFSAssemblyInfo (projectPath) =
         Attribute.Version release.AssemblyVersion
         Attribute.FileVersion release.AssemblyVersion ]
 
-let genCSAssemblyInfo (projectPath) =
-    let projectName = System.IO.Path.GetFileNameWithoutExtension(projectPath)
-    let folderName = System.IO.Path.GetDirectoryName(projectPath)
-    let basePath = folderName @@ "Properties"
-    let fileName = basePath @@ "AssemblyInfo.cs"
-    CreateCSharpAssemblyInfo fileName
-      [ Attribute.Title (projectName)
-        Attribute.Product project
-        Attribute.Description summary
-        Attribute.Version release.AssemblyVersion
-        Attribute.FileVersion release.AssemblyVersion ]
-
 // Generate assembly info files with the right version & up-to-date information
 Target "AssemblyInfo" (fun _ ->
-  let fsProjs =  !! "src/**/*.fsproj"
-  let csProjs = !! "src/**/*.csproj"
-  fsProjs |> Seq.iter genFSAssemblyInfo
-  csProjs |> Seq.iter genCSAssemblyInfo
+  genFSAssemblyInfo "src/FSharpx.Async/FSharpx.Async.fsproj"
 )
 
 // --------------------------------------------------------------------------------------
@@ -118,16 +104,26 @@ Target "Build" (fun _ ->
     |> ignore
 )
 
+Target "Build.NetCore" (fun _ ->
+     DotNetCli.Build (fun p ->
+         { p with Project = netcoreSolutionFile })
+)
+
 // --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
 
 Target "RunTests" (fun _ ->
-    !! testAssemblies
+    !! fullFrameworkTestAssemblies
     |> NUnit (fun p ->
         { p with
             DisableShadowCopy = true
             TimeOut = TimeSpan.FromMinutes 20.
             OutputFile = "TestResults.xml" })
+)
+
+Target "RunTests.NetCore" (fun _ ->
+    DotNetCli.Test (fun c -> 
+        { c with Project = @"tests\FSharpx.Async.Tests.NetCore\FSharpx.Async.Tests.fsproj" })
 )
 
 #if MONO
@@ -163,6 +159,19 @@ Target "NuGet" (fun _ ->
             Version = release.NugetVersion
             ReleaseNotes = toLines release.Notes})
 )
+
+Target "NuGet.NetCore" (fun _ ->
+    let toolsDir = "tools/"
+
+    DotNetCli.Restore (fun c -> { c with WorkingDir = toolsDir })  
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = "src/FSharpx.Async.NetStandard" })
+        (sprintf "pack \"%s\" /p:Version=%s --configuration Release" "FSharpx.Async.fsproj" (release.NugetVersion))
+
+    let nupkg = sprintf "FSharpx.Async.%s.nupkg" release.NugetVersion
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = toolsDir })
+        (sprintf "mergenupkg --source \"./../bin/%s\" --other \"./../src/FSharpx.Async.NetStandard/bin/Release/%s\" --framework netstandard2.0" nupkg nupkg)
+)
+
 
 Target "PublishNuget" (fun _ ->
     Paket.Push(fun p -> 
@@ -289,7 +298,7 @@ Target "ReleaseDocs" (fun _ ->
     Branches.push tempDocsDir
 )
 
-#load "paket-files/fsharp/FAKE/modules/Octokit/Octokit.fsx"
+#load "paket-files/build/fsharp/FAKE/modules/Octokit/Octokit.fsx"
 open Octokit
 
 Target "Release" (fun _ ->
@@ -317,7 +326,9 @@ Target "All" DoNothing
 
 "AssemblyInfo"
   ==> "Build"
+  ==> "Build.NetCore"
   ==> "RunTests"
+  ==> "RunTests.NetCore"
   =?> ("GenerateReferenceDocs",isLocalBuild)
   =?> ("GenerateDocs",isLocalBuild)
 #if MONO
@@ -325,6 +336,7 @@ Target "All" DoNothing
   =?> ("SourceLink", Pdbstr.tryFind().IsSome )
 #endif
   ==> "NuGet"
+  ==> "NuGet.NetCore"
   ==> "BuildPackage"
   ==> "All"
   =?> ("ReleaseDocs",isLocalBuild)
