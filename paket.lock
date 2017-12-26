@@ -1,7 +1,8 @@
-RESTRICTION: == net45
+RESTRICTION: == net452
 NUGET
   remote: https://www.nuget.org/api/v2
-    FSharp.Control.AsyncSeq (2.0.16)
+    FSharp.Control.AsyncSeq (2.0.19)
+      FSharp.Core (>= 4.2.3)
     FSharp.Core (4.2.3) - redirects: force
     NUnit (2.6.4)
     NUnit.Runners (2.6.4)
@@ -523,10 +524,11 @@ GROUP netcore
 RESTRICTION: || (== netcoreapp2.0) (== netstandard2.0)
 NUGET
   remote: https://www.nuget.org/api/v2
-    dotnet-mergenupkg (2.1) - clitool: true
+    dotnet-mergenupkg (2.2.2) - clitool: true
       FSharp.Core (>= 4.2.3) - restriction: || (== netcoreapp2.0) (&& (== netstandard2.0) (>= netcoreapp1.0))
       Microsoft.NETCore.App (>= 2.0) - restriction: || (== netcoreapp2.0) (&& (== netstandard2.0) (>= netcoreapp2.0))
-    FSharp.Control.AsyncSeq (2.0.16)
+    FSharp.Control.AsyncSeq (2.0.19)
+      FSharp.Core (>= 4.2.3)
     FSharp.Core (4.2.3)
       System.Collections (>= 4.0.11)
       System.Console (>= 4.0)

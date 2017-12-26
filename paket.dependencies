@@ -1,6 +1,6 @@
 source https://nuget.org/api/v2
 
-framework: net45
+framework: net452
 
 nuget Fsharp.Core redirects:force
 nuget NUnit ~> 2.6
@@ -27,9 +27,4 @@ group netcore
     nuget FSharp.Control.AsyncSeq
     github fsprojects/FSharpx.Collections src/FSharpx.Collections/CircularBuffer.fs
 
-    clitool dotnet-mergenupkg >= 1.0.1
-
-
-
-
-
+    clitool dotnet-mergenupkg >= 2.2

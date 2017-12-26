@@ -19,3 +19,6 @@ summary
     Async extensions for F#
 description
     Async extensions for F#
+dependencies
+  FSharp.Core >= LOCKEDVERSION
+  FSharp.Control.AsyncSeq >= LOCKEDVERSION
