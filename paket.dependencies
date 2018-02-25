@@ -1,6 +1,7 @@
 source https://nuget.org/api/v2
 
-nuget Fsharp.Core redirects:force
+framework: net45
+nuget Fsharp.Core redirects: on
 nuget FSharp.Formatting
 nuget NUnit ~> 2.6
 nuget NUnit.Runners ~> 2.6

@@ -1,28 +1,31 @@
+RESTRICTION: == net45
 NUGET
   remote: https://www.nuget.org/api/v2
-    FAKE (4.40)
+    FAKE (4.64.6)
     FSharp.Compiler.Service (2.0.0.6)
-    FSharp.Control.AsyncSeq (2.0.9)
-    FSharp.Core (4.0.0.1) - redirects: force
+    FSharp.Control.AsyncSeq (2.0.20)
+      FSharp.Core (>= 3.1.2)
+      System.ValueTuple (>= 4.4)
+    FSharp.Core (4.3.4) - redirects: on
     FSharp.Formatting (2.14.4)
       FSharp.Compiler.Service (2.0.0.6)
       FSharpVSPowerTools.Core (>= 2.3 < 2.4)
     FSharpVSPowerTools.Core (2.3)
       FSharp.Compiler.Service (>= 2.0.0.3)
-    Microsoft.Bcl (1.1.10) - framework: net10, net11, net20, net30, net35, net40, net40-full
-      Microsoft.Bcl.Build (>= 1.0.14)
-    Microsoft.Bcl.Build (1.0.21) - import_targets: false, framework: net10, net11, net20, net30, net35, net40, net40-full
-    Microsoft.Net.Http (2.2.29) - framework: net10, net11, net20, net30, net35, net40, net40-full
-      Microsoft.Bcl (>= 1.1.10)
-      Microsoft.Bcl.Build (>= 1.0.14)
+    Microsoft.NETCore.Platforms (2.0.1)
+    NETStandard.Library (2.0.1)
+      Microsoft.NETCore.Platforms (>= 1.1)
+      System.Runtime.InteropServices.RuntimeInformation (>= 4.3)
     NUnit (2.6.4)
     NUnit.Runners (2.6.4)
     Octokit (0.22)
-      Microsoft.Net.Http  - framework: net10, net11, net20, net30, net35, net40, net40-full
     SourceLink.Fake (1.1)
+    System.Runtime.InteropServices.RuntimeInformation (4.3)
+    System.ValueTuple (4.4)
+      NETStandard.Library (>= 1.6.1)
 GITHUB
   remote: fsharp/FAKE
-    modules/Octokit/Octokit.fsx (dab7b5aea40c0855cf35fc7d6e67fa4f411fb24b)
+    modules/Octokit/Octokit.fsx (a769b9ef31de04ecb7a18d07f235eebe0d458826)
       Octokit (>= 0.20)
   remote: fsprojects/FSharpx.Collections
-    src/FSharpx.Collections/CircularBuffer.fs (944b8c8e464cdd10070889f53c78e9fbeb478698)
+    src/FSharpx.Collections/CircularBuffer.fs (013628b8d5765300aaa479777f6cbcfbf09de3b9)
