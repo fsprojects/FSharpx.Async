@@ -48,7 +48,7 @@ let tags = "F#, async, fsharpx"
 let solutionFile  = "FSharpx.Async.sln"
 
 // Pattern specifying assemblies to be tested using NUnit
-let testAssemblies = "tests/**/bin/Release/*Tests*.dll"
+let testAssemblies = "tests/**/bin/Release/net45/*Tests*.dll"
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
@@ -113,8 +113,7 @@ Target "Clean" (fun _ ->
 // Build library & test project
 
 Target "Build" (fun _ ->
-    !! solutionFile
-    |> MSBuildRelease "" "Build"
+    DotNetCli.Build id 
     |> ignore
 )
 
@@ -125,9 +124,7 @@ Target "RunTests" (fun _ ->
     !! testAssemblies
     |> NUnit (fun p ->
         { p with
-            DisableShadowCopy = true
-            TimeOut = TimeSpan.FromMinutes 20.
-            OutputFile = "TestResults.xml" })
+            TimeOut = TimeSpan.FromMinutes 20. })
 )
 
 #if MONO
