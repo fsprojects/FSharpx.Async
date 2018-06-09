@@ -70,13 +70,16 @@ module AsyncExtensions =
       static member Cache (input:Async<'T>) = 
           let agent = Agent<AsyncReplyChannel<_>>.Start(fun agent -> async {
               let! repl = agent.Receive()
-              let! res = input
+              let! res = input |> Async.Catch
               repl.Reply(res)
               while true do
                   let! repl = agent.Receive()
                   repl.Reply(res) })
 
-          async { return! agent.PostAndAsyncReply(id) }
+          async {
+            let! result = agent.PostAndAsyncReply(id)
+            return match result with | Choice1Of2 v -> v | Choice2Of2 exn -> raise exn
+          }
 
       /// Starts the specified operation using a new CancellationToken and returns
       /// IDisposable object that cancels the computation. This method can be used

@@ -51,3 +51,8 @@ let ``Parallel with throttle``() =
   let tasks = nums |> Array.map work
   let result = Async.ParallelWithThrottle 1 tasks
   Assert.AreEqual(nums, result |> Async.RunSynchronously)
+
+[<Test>]
+let ``Cache should catch and bubble up exceptions``() =
+  let workflow = async { invalidOp "fail" } |> Async.Cache
+  Assert.Throws<InvalidOperationException>(fun () -> workflow |> Async.RunSynchronously) |> ignore
