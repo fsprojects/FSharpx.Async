@@ -196,6 +196,10 @@ Target "GenerateReferenceDocs" (fun _ ->
       failwith "generating reference documentation failed"
 )
 
+Target "NuGet.Restore" (fun _ ->
+    DotNetCli.Restore id
+)
+
 let generateHelp' fail debug =
     let args =
         if debug then ["--define:HELP"]
@@ -334,6 +338,7 @@ Target "BuildPackage" DoNothing
 Target "All" DoNothing
 
 "AssemblyInfo"
+  ==> "NuGet.Restore"
   ==> "Build"
   ==> "RunTests"
   =?> ("GenerateReferenceDocs",isLocalBuild)
