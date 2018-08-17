@@ -128,13 +128,6 @@ Target "Build" (fun _ ->
 )
 
 // --------------------------------------------------------------------------------------
-// Copy binaries to "bin" folder
-
-Target "Copy Binaries" (fun _ ->
-    CopyDir binFolder prjBinFolder (fun _ -> true)
-)
-
-// --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
 
 let runTests proj =
@@ -367,8 +360,7 @@ Target "All" DoNothing
 "GenerateHelp"
   ==> "KeepRunning"
 
-"Copy Binaries"
-  ==> "NuGet"
+"NuGet"
   ==> "SourceLink.Test"
   ==> "Release"
 

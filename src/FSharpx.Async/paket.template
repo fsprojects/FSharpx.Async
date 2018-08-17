@@ -30,9 +30,9 @@ dependencies
 excludeddependencies
     SourceLink.Create.CommandLine
 files
-    bin/Release/net45/Fsharpx.Async.dll ==> lib/net45
-    bin/Release/net45/Fsharpx.Async.pdb ==> lib/net45
-    bin/Release/net45/Fsharpx.Async.xml ==> lib/net45
-    bin/Release/netstandard2.0/Fsharpx.Async.dll ==> lib/netstandard2.0
-    bin/Release/netstandard2.0/Fsharpx.Async.pdb ==> lib/netstandard2.0
-    bin/Release/netstandard2.0/Fsharpx.Async.xml ==> lib/netstandard2.0
+    bin/Release/net45/FSharpx.Async.dll ==> lib/net45
+    bin/Release/net45/FSharpx.Async.pdb ==> lib/net45
+    bin/Release/net45/FSharpx.Async.xml ==> lib/net45
+    bin/Release/netstandard2.0/FSharpx.Async.dll ==> lib/netstandard2.0
+    bin/Release/netstandard2.0/FSharpx.Async.pdb ==> lib/netstandard2.0
+    bin/Release/netstandard2.0/FSharpx.Async.xml ==> lib/netstandard2.0
