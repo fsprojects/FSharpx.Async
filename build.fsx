@@ -52,6 +52,10 @@ let configuration = environVarOrDefault "Configuration" "Release"
 //Nuget Package folder
 let artifacts = __SOURCE_DIRECTORY__ @@ "artifacts"
 
+//Binary folder
+let binFolder    = __SOURCE_DIRECTORY__ @@ "bin"
+let prjBinFolder = __SOURCE_DIRECTORY__ @@ "src" @@ project @@ "bin"
+
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
 let gitOwner = "fsprojects" 
@@ -108,7 +112,7 @@ Target "Clean" (fun _ ->
     !! solutionFile
     |> MSBuildRelease "" "Clean"
     |> ignore
-    CleanDirs [artifacts; "docs/output"; "temp"]
+    CleanDirs [artifacts; binFolder; "docs/output"; "temp"]
 )
 
 // --------------------------------------------------------------------------------------
@@ -121,6 +125,13 @@ Target "Build" (fun _ ->
       Excludes = [] } 
     |> MSBuild "" "Build" ["Configuration", configuration; "SourceLinkCreate", "true"]
     |> Log "AppBuild-Output: "
+)
+
+// --------------------------------------------------------------------------------------
+// Copy binaries to "bin" folder
+
+Target "Copy Binaries" (fun _ ->
+    CopyDir binFolder prjBinFolder (fun _ -> true)
 )
 
 // --------------------------------------------------------------------------------------
@@ -337,13 +348,14 @@ Target "BuildPackage" DoNothing
 
 Target "All" DoNothing
 
-"AssemblyInfo"
+"Clean"
+  ==> "AssemblyInfo"
   ==> "NuGet.Restore"
   ==> "Build"
   ==> "RunTests"
   =?> ("GenerateReferenceDocs",isLocalBuild)
   =?> ("GenerateDocs",isLocalBuild)
-  ==> "NuGet"  
+  ==> "NuGet"
   ==> "BuildPackage"
   ==> "All"
   =?> ("ReleaseDocs",isLocalBuild)
@@ -355,11 +367,9 @@ Target "All" DoNothing
 "GenerateHelp"
   ==> "KeepRunning"
 
-"NuGet"
+"Copy Binaries"
+  ==> "NuGet"
   ==> "SourceLink.Test"
-  ==> "Release"
-
-"Clean"
   ==> "Release"
 
 "ReleaseDocs"
