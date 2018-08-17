@@ -2,9 +2,9 @@
 
 open FSharp.Control
 open FSharpx.Control
-open NUnit.Framework
+open Xunit
 
-[<Test>]
+[<Fact>]
 let ``AsyncStream.repeat``() =
   
   let n = 3
@@ -16,7 +16,7 @@ let ``AsyncStream.repeat``() =
   
   Assert.True ((List.init n (fun _ -> 1) = s))
 
-[<Test>]
+[<Fact>]
 let ``AsyncStream.unfoldAsync``() =
   
   let s = 
@@ -26,7 +26,7 @@ let ``AsyncStream.unfoldAsync``() =
 
   Assert.True ((List.init 3 id = s))
 
-[<Test>]
+[<Fact>]
 let ``AsyncStream.mapAsync``() =
   
   let s = 
@@ -37,7 +37,7 @@ let ``AsyncStream.mapAsync``() =
 
   Assert.True ((List.init 3 (fun _ -> "1") = s))
 
-[<Test>]
+[<Fact>]
 let ``AsyncStream.cycleList``() =
   
   let s = 
@@ -47,7 +47,7 @@ let ``AsyncStream.cycleList``() =
 
   Assert.True(([1;2;3;1;2;3] = s))
 
-[<Test>]
+[<Fact>]
 let ``AsyncStream.tails``() =
   
   let s = 
@@ -59,7 +59,7 @@ let ``AsyncStream.tails``() =
     
   Assert.True(([ [2;3;4] ; [3;4;1] ; [4;1;2] ] = s))
 
-[<Test>]
+[<Fact>]
 let ``AsyncStream.prefixAsyncSeq``() =
   
   let s = 
@@ -70,7 +70,7 @@ let ``AsyncStream.prefixAsyncSeq``() =
     
   Assert.True(([1;2;3] = s))
 
-[<Test>]
+[<Fact>]
 let ``AsyncStream.splitAtList``() =
   
   let (ls,tl) = 
@@ -80,7 +80,7 @@ let ``AsyncStream.splitAtList``() =
 
   Assert.True(([1;2;3] = ls))
 
-[<Test>]
+[<Fact>]
 let ``AsyncStream.filterAsync``() =
   
   let s = 
@@ -91,7 +91,7 @@ let ``AsyncStream.filterAsync``() =
 
   Assert.True([2;4;2;4] = s) 
 
-[<Test>]
+[<Fact>]
 let ``AsyncStream.chooseAsync``() =
   
   let s = 
@@ -102,7 +102,7 @@ let ``AsyncStream.chooseAsync``() =
 
   Assert.True(["2";"4";"2";"4"] = s) 
 
-[<Test>]
+[<Fact>]
 let ``AsyncStream.scanAsync``() =
   
   let s = 
@@ -113,7 +113,7 @@ let ``AsyncStream.scanAsync``() =
 
   Assert.True([[1];[1;2];[1;2;3];[1;2;3;4]] = s) 
 
-[<Test>]
+[<Fact>]
 let ``AsyncStream.iterAsync``() =  
   let items = ResizeArray<_>()
   use cts = new System.Threading.CancellationTokenSource()

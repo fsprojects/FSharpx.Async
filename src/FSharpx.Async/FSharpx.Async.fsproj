@@ -1,23 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ProjectGuid>2d4f3d0e-0e18-48d7-9c27-98864039393d</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>FSharpx.Async</RootNamespace>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <AssemblyName>FSharpx.Async</AssemblyName>
-    <Name>FSharpx.Async</Name>
-    <DocumentationFile>..\..\bin\FSharpx.Async.xml</DocumentationFile>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Framework)'=='netstandard2.0'">
+    <DefineConstants>NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FSharpx.Async.xml</DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
-    <None Include="paket.references" />
-    <None Include="paket.template" />
-    <Compile Include="AssemblyInfo.fs" />
     <Compile Include="..\..\paket-files\fsprojects\FSharpx.Collections\src\FSharpx.Collections\CircularBuffer.fs">
       <Paket>True</Paket>
       <Link>CircularBuffer.fs</Link>
     </Compile>
+    <None Include="paket.references" />
+    <None Include="paket.template" />
+    <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Utils.fs" />
     <Compile Include="Agent.fs" />
     <Compile Include="AutoCancelAgent.fs" />

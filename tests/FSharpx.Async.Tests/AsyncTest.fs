@@ -2,10 +2,12 @@ module FSharpx.Async.Tests.AsyncTest
 
 open System
 open System.Threading.Tasks
-open NUnit.Framework
+open Xunit
 open FSharpx.Control
+open System.Collections.Generic
+open System.Collections
 
-[<Test>]
+[<Fact>]
 let ``Async.ParallelIgnore should run argument computations``() =  
   let bag = System.Collections.Concurrent.ConcurrentBag<_>()  
   let s = Seq.init 10 id |> Set.ofSeq    
@@ -15,7 +17,7 @@ let ``Async.ParallelIgnore should run argument computations``() =
   |> Async.RunSynchronously
   Assert.True((s = (bag |> Set.ofSeq)))
 
-[<Test>]
+[<Fact>]
 let ``Async.ParallelIgnore should fail upon first failure``() =
   let s =
     [
@@ -28,7 +30,7 @@ let ``Async.ParallelIgnore should fail upon first failure``() =
   )
   |> ignore
 
-[<Test>]
+[<Fact>]
 let ``Async.ParallelIgnore should cancel upon first cancellation``() =
   let tcs = new TaskCompletionSource<unit>()
   let s =
@@ -36,17 +38,19 @@ let ``Async.ParallelIgnore should cancel upon first cancellation``() =
       tcs.Task |> Async.AwaitTask
     ]
   tcs.SetCanceled()
-  Assert.Throws<TaskCanceledException>(fun() ->
+  try
     s
     |> Async.ParallelIgnore 1
     |> Async.RunSynchronously
-  )
-  |> ignore
+    failwith "Should throw exception before here."
+  with e ->
+    Assert.Equal (typeof<TaskCanceledException>,e.InnerException.GetType())
 
-[<Test>]
+[<Fact>]
 let ``Parallel with throttle``() =
-  let nums = [|123|]
+  let nums  = [|123|]
   let work n = async.Return(n)
   let tasks = nums |> Array.map work
-  let result = Async.ParallelWithThrottle 1 tasks
-  Assert.AreEqual(nums, result |> Async.RunSynchronously)
+  let resultAsync = Async.ParallelWithThrottle 1 tasks
+  let result = (resultAsync |> Async.RunSynchronously) :> IEnumerable<int>
+  Assert.Equal(nums, result)

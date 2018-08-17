@@ -1,25 +1,30 @@
-framework: netstandard2.0
-source https://nuget.org/api/v2
+framework: net461, netstandard2.0, netcoreapp2.0
+source https://api.nuget.org/v3/index.json
+redirects: force
 
-nuget Fsharp.Core lowest_matching: true
-nuget FSharp.Control.AsyncSeq
-
+nuget Fsharp.Core >= 4.2 lowest_matching: true
+nuget FSharp.Control.AsyncSeq >= 2.0.19 lowest_matching: true
 github fsprojects/FSharpx.Collections src/FSharpx.Collections/CircularBuffer.fs
 
-group build-gr
-    
-    source https://nuget.org/api/v2
+nuget xunit ~> 2.3
+nuget xunit.runner.visualstudio ~> 2.3 version_in_path: true
+nuget SourceLink.Create.CommandLine copy_local: true
+clitool dotnet-sourcelink framework: netcoreapp2.0
 
-    nuget FSharp.Formatting
-    nuget FAKE ~> 4
-    nuget SourceLink.Fake
+group Legacy
+    framework: net45
+    source https://api.nuget.org/v3/index.json
+    redirects: force
+
+    nuget FSharp.Control.AsyncSeq >= 2.0.9 lowest_matching:true
+    nuget Fsharp.Core >= 4.0 lowest_matching:true
+    nuget SourceLink.Create.CommandLine copy_local: true
+
+group Build
+    framework: net461
+    source https://api.nuget.org/v3/index.json
+
+    nuget FAKE ~> 4.0
+    nuget FSharp.Formatting    
+    nuget xunit.runner.console ~> 2.3
     github fsharp/FAKE modules/Octokit/Octokit.fsx
-
-group test-gr
-
-    source https://nuget.org/api/v2
-    
-    nuget Microsoft.NET.Test.Sdk
-    nuget NUnit3TestAdapter
-    nuget NUnit
-    nuget NUnit.Runners

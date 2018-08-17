@@ -200,12 +200,16 @@ namespace FSharpx.Control
         open Microsoft.FSharp.Control.WebExtensions
         open System.ComponentModel
         open FSharpx
-        
+#if NETSTANDARD2_0
         let callFSharpCoreAsyncDownloadString (req: System.Net.WebClient) address = async {
             do req.DownloadStringAsync address
             let! evt = Async.AwaitEvent (req.DownloadStringCompleted, req.CancelAsync)
             return evt.Result
         }
+#else
+        let callFSharpCoreAsyncDownloadString (req: System.Net.WebClient) address = 
+            req.AsyncDownloadString address
+#endif
 
         let fromEventPattern (event : IEvent<_, #AsyncCompletedEventArgs>) start result cancel =
             async {

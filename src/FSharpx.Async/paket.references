@@ -1,3 +1,8 @@
 FSharp.Control.AsyncSeq
 Fsharp.Core
+SourceLink.Create.CommandLine
 File:CircularBuffer.fs .
+group Legacy
+  Fsharp.Core
+  FSharp.Control.AsyncSeq
+  SourceLink.Create.CommandLine

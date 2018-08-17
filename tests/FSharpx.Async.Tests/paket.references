@@ -1,9 +1,4 @@
-FSharp.Control.AsyncSeq
-Fsharp.Core
-
-group test-gr
-
-NUnit
-NUnit.Runners
-Microsoft.NET.Test.Sdk
-NUnit3TestAdapter
+FSharp.Core
+xunit
+xunit.runner.visualstudio
+dotnet-sourcelink

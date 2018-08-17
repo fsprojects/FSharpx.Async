@@ -1,27 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <ProjectGuid>adbd32db-b7ac-4e81-9507-28f329af23e7</ProjectGuid>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <IsPackable>false</IsPackable>
+    <TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+    <AssemblyName>FSharpx.Async.Tests</AssemblyName>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Framework)'=='netcoreapp2.0'">
+    <DefineConstants>NETCOREAPP2_0</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="paket.references" />
     <Compile Include="AsyncTest.fs" />
-    <Compile Include="AsyncStreamTests.fs" />
+    <Compile Include="AsyncStreamTests.fs" />    
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FSharpx.Async\FSharpx.Async.fsproj">
-      <Name>FSharpx.Async</Name>
-      <Project>{2d4f3d0e-0e18-48d7-9c27-98864039393d}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>../../packages/test-gr/NUnit/lib/netstandard2.0/nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <ProjectReference Include="..\..\src\FSharpx.Async\FSharpx.Async.fsproj" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
