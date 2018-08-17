@@ -27,4 +27,5 @@ group Build
     nuget FAKE ~> 4.0
     nuget FSharp.Formatting    
     nuget xunit.runner.console ~> 2.3
+    nuget Octokit
     github fsharp/FAKE modules/Octokit/Octokit.fsx

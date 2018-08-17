@@ -46,9 +46,11 @@ let solutionFile  = "FSharpx.Async.sln"
 // Pattern specifying folders with test assemblies
 let testProjects = "tests/**/*.??proj"
 
+//Default build configuration
+let configuration = environVarOrDefault "Configuration" "Release"
+
 //Nuget Package folder
-let artifacts  = "artifacts"
-let binFolder  = "bin"
+let artifacts = __SOURCE_DIRECTORY__ @@ "artifacts"
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
@@ -60,9 +62,6 @@ let gitName = "FSharpx.Async"
 
 // The url for the raw files hosted
 let gitRaw = environVarOrDefault "gitRaw" "https://raw.github.com/fsprojects"
-
-//Default build configuration
-let configuration = environVarOrDefault "Configuration" "Release"
 
 // --------------------------------------------------------------------------------------
 // END TODO: The rest of the file includes standard build steps
@@ -109,7 +108,7 @@ Target "Clean" (fun _ ->
     !! solutionFile
     |> MSBuildRelease "" "Clean"
     |> ignore
-    CleanDirs [artifacts; binFolder; "docs/output"; "temp"]
+    CleanDirs [artifacts; "docs/output"; "temp"]
 )
 
 // --------------------------------------------------------------------------------------
@@ -339,8 +338,7 @@ Target "All" DoNothing
   ==> "RunTests"
   =?> ("GenerateReferenceDocs",isLocalBuild)
   =?> ("GenerateDocs",isLocalBuild)
-  ==> "NuGet"
-  ==> "SourceLink.Test"
+  ==> "NuGet"  
   ==> "BuildPackage"
   ==> "All"
   =?> ("ReleaseDocs",isLocalBuild)
@@ -351,6 +349,10 @@ Target "All" DoNothing
 
 "GenerateHelp"
   ==> "KeepRunning"
+
+"NuGet"
+  ==> "SourceLink.Test"
+  ==> "Release"
 
 "Clean"
   ==> "Release"

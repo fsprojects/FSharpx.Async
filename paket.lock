@@ -752,6 +752,7 @@ NUGET
       FSharpVSPowerTools.Core (>= 2.3 < 2.4)
     FSharpVSPowerTools.Core (2.3)
       FSharp.Compiler.Service (>= 2.0.0.3)
+    Octokit (0.31)
     xunit.runner.console (2.4)
 GITHUB
   remote: fsharp/FAKE
