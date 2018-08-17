@@ -5,11 +5,9 @@
 #r @"packages/build-gr/FAKE/tools/FakeLib.dll"
 
 open Fake
-open Fake.Testing
 open Fake.Git
 open Fake.AssemblyInfoFile
 open Fake.ReleaseNotesHelper
-open System
 open System.IO
 #if MONO
 #else
@@ -48,8 +46,8 @@ let tags = "F#, async, fsharpx"
 // File system information 
 let solutionFile  = "FSharpx.Async.sln"
 
-// Pattern specifying assemblies to be tested using NUnit
-let testAssemblies = "tests/**/bin/Release/**/*Tests*.dll"
+// Pattern specifying folders with test assemblies
+let testFolders = "tests/*/"
 
 //NUnit3 runner path
 let nunitRunnerPath = "packages/test-gr/NUnit.ConsoleRunner/tools/nunit3-console.exe"
@@ -126,11 +124,12 @@ Target "Build" (fun _ ->
 // Run the unit tests using test runner
 
 Target "RunTests" (fun _ ->
-    !! testAssemblies
-    |> NUnit3 (fun p ->
-        { p with
-            ToolPath = nunitRunnerPath
-            TimeOut = TimeSpan.FromMinutes 20. })
+    !! testFolders
+    |> Seq.iter (fun testFolder ->
+        DotNetCli.Test (fun p ->
+            { p with WorkingDir = testFolder }
+        )
+    )
 )
 
 #if MONO

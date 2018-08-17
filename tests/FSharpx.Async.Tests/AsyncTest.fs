@@ -1,7 +1,6 @@
 module FSharpx.Async.Tests.AsyncTest
 
 open System
-open System.Threading
 open System.Threading.Tasks
 open NUnit.Framework
 open FSharpx.Control

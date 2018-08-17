@@ -1,0 +1,1 @@
+module Main = let [<EntryPoint>] main _ = 0

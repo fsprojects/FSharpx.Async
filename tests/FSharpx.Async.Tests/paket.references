@@ -5,3 +5,5 @@ group test-gr
 
 NUnit
 NUnit.Runners
+Microsoft.NET.Test.Sdk
+NUnit3TestAdapter

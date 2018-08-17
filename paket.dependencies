@@ -18,6 +18,8 @@ group build-gr
 group test-gr
 
     source https://nuget.org/api/v2
-
+    
+    nuget Microsoft.NET.Test.Sdk
+    nuget NUnit3TestAdapter
     nuget NUnit
     nuget NUnit.Runners

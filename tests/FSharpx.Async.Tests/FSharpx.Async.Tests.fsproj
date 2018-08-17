@@ -2,12 +2,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <ProjectGuid>adbd32db-b7ac-4e81-9507-28f329af23e7</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>FSharpx.Async.Tests</RootNamespace>
-    <AssemblyName>FSharpx.Async.Tests</AssemblyName>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <Name>FSharpx.Async.Tests</Name>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
     <None Include="paket.references" />
