@@ -1,12 +1,23 @@
+framework: netstandard2.0
 source https://nuget.org/api/v2
 
-nuget Fsharp.Core redirects:force
-nuget FSharp.Formatting
-nuget NUnit ~> 2.6
-nuget NUnit.Runners ~> 2.6
-nuget FAKE
-nuget SourceLink.Fake
+nuget Fsharp.Core >= 4.3.2 lowest_matching: true
 nuget FSharp.Control.AsyncSeq
 
-github fsharp/FAKE modules/Octokit/Octokit.fsx
 github fsprojects/FSharpx.Collections src/FSharpx.Collections/CircularBuffer.fs
+
+group build-gr
+    
+    source https://nuget.org/api/v2
+
+    nuget FSharp.Formatting
+    nuget FAKE ~> 4
+    nuget SourceLink.Fake
+    github fsharp/FAKE modules/Octokit/Octokit.fsx
+
+group test-gr
+
+    source https://nuget.org/api/v2
+
+    nuget NUnit ~> 2.6
+    nuget NUnit.Runners ~> 2.6

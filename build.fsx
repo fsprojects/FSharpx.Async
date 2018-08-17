@@ -2,17 +2,18 @@
 // FAKE build script
 // --------------------------------------------------------------------------------------
 
-#r @"packages/FAKE/tools/FakeLib.dll"
+#r @"packages/build-gr/FAKE/tools/FakeLib.dll"
 
 open Fake
 open Fake.Git
 open Fake.AssemblyInfoFile
 open Fake.ReleaseNotesHelper
+open SourceLink
 open System
 open System.IO
 #if MONO
 #else
-#load "packages/SourceLink.Fake/tools/Fake.fsx"
+#load "packages/build-gr/SourceLink.Fake/tools/Fake.fsx"
 open SourceLink
 #endif
 
@@ -48,7 +49,7 @@ let tags = "F#, async, fsharpx"
 let solutionFile  = "FSharpx.Async.sln"
 
 // Pattern specifying assemblies to be tested using NUnit
-let testAssemblies = "tests/**/bin/Release/*Tests*.dll"
+let testAssemblies = "tests/**/bin/Release/**/*Tests*.dll"
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
@@ -145,9 +146,8 @@ Target "SourceLink" (fun _ ->
         let proj = VsProj.LoadRelease f
         logfn "source linking %s" proj.OutputFilePdb
         let files = proj.Compiles -- "**/AssemblyInfo.fs"
-        repo.VerifyChecksums files
-        proj.VerifyPdbChecksums files
-        proj.CreateSrcSrv baseUrl repo.Revision (repo.Paths files)
+        SourceLink.Index files proj.OutputFilePdb __SOURCE_DIRECTORY__ baseUrl
+        proj.CreateSrcSrv baseUrl repo.Commit (repo.Paths files)
         Pdbstr.exec proj.OutputFilePdb proj.OutputFilePdbSrcSrv
   )
 )

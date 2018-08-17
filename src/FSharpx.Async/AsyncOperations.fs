@@ -201,7 +201,11 @@ namespace FSharpx.Control
         open System.ComponentModel
         open FSharpx
         
-        let callFSharpCoreAsyncDownloadString (req: System.Net.WebClient) address = req.AsyncDownloadString address
+        let callFSharpCoreAsyncDownloadString (req: System.Net.WebClient) address = async {
+            do req.DownloadStringAsync address
+            let! evt = Async.AwaitEvent (req.DownloadStringCompleted, req.CancelAsync)
+            return evt.Result
+        }
 
         let fromEventPattern (event : IEvent<_, #AsyncCompletedEventArgs>) start result cancel =
             async {

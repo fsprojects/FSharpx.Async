@@ -1,4 +1,7 @@
 FSharp.Control.AsyncSeq
+Fsharp.Core
+
+group test-gr
+
 NUnit
 NUnit.Runners
-Fsharp.Core

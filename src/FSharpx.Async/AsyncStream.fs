@@ -62,9 +62,9 @@ module AsyncStream =
   /// Prepends an async sequence to a stream.
   let rec prefixAsyncSeq (s:AsyncSeq<'a>) (a:AsyncStream<'a>) : AsyncStream<'a> =
     async { 
-        let i = AsyncSeq.getIterator s 
-        let rec loop() = async { 
-            let! v = i()  
+        let i = s.GetEnumerator()
+        let rec loop() = async {
+            let! v = i.MoveNext()
             match v with 
             | None -> return! a 
             | Some hd -> return! create hd (loop()) }
