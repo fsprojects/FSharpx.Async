@@ -36,7 +36,7 @@ let ``Async.ParallelIgnore should cancel upon first cancellation``() =
       tcs.Task |> Async.AwaitTask
     ]
   tcs.SetCanceled()
-  Assert.Throws<OperationCanceledException>(fun() ->
+  Assert.Throws<TaskCanceledException>(fun() ->
     s
     |> Async.ParallelIgnore 1
     |> Async.RunSynchronously
