@@ -5,7 +5,7 @@
 #r @"packages/build/FAKE/tools/FakeLib.dll"
 
 open Fake
-open Fake.Testing
+open Fake.Testing.XUnit2
 open Fake.Git
 open Fake.AssemblyInfoFile
 open Fake.ReleaseNotesHelper
@@ -155,7 +155,7 @@ let runTests proj =
         for framework in legacyFrameworks do
             let assembly = projDir @@ "bin" @@ configuration @@ framework @@ projName + ".dll"
             !! assembly
-            |> NUnit3 (fun c ->
+            |> xUnit2 (fun c ->
                 { c with
                     TimeOut = TimeSpan.FromMinutes 20. })
 
