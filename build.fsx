@@ -5,10 +5,10 @@
 #r @"packages/build-gr/FAKE/tools/FakeLib.dll"
 
 open Fake
+open Fake.Testing
 open Fake.Git
 open Fake.AssemblyInfoFile
 open Fake.ReleaseNotesHelper
-open SourceLink
 open System
 open System.IO
 #if MONO
@@ -50,6 +50,9 @@ let solutionFile  = "FSharpx.Async.sln"
 
 // Pattern specifying assemblies to be tested using NUnit
 let testAssemblies = "tests/**/bin/Release/**/*Tests*.dll"
+
+//NUnit3 runner path
+let nunitRunnerPath = "packages/test-gr/NUnit.ConsoleRunner/tools/nunit3-console.exe"
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
@@ -124,11 +127,10 @@ Target "Build" (fun _ ->
 
 Target "RunTests" (fun _ ->
     !! testAssemblies
-    |> NUnit (fun p ->
+    |> NUnit3 (fun p ->
         { p with
-            DisableShadowCopy = true
-            TimeOut = TimeSpan.FromMinutes 20.
-            OutputFile = "TestResults.xml" })
+            ToolPath = nunitRunnerPath
+            TimeOut = TimeSpan.FromMinutes 20. })
 )
 
 #if MONO
