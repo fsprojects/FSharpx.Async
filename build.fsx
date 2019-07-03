@@ -65,7 +65,7 @@ Target "NuGet" (fun _ ->
             Project="src/FSharpx.Async/FSharpx.Async.fsproj"
             Configuration="Release"
             OutputPath=outputDir
-            VersionSuffix=(if not isLocalBuild && (buildVersion = "LocalBuild") then "" else sprintf "-b%s" buildVersion)
+            VersionSuffix=(if not isLocalBuild && (buildVersion = "LocalBuild") then "" else sprintf "b%s" buildVersion)
         })
 )
 
