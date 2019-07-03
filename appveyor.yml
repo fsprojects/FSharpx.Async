@@ -6,7 +6,7 @@ init:
 build_script:
   - cmd: build.cmd All
 test: off
-version: 1.14.0-b{build}
+version: '{build}'
 artifacts:
   - path: bin/FSharpx.Async.*.nupkg
     name: nupkg
