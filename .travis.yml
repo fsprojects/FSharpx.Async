@@ -2,8 +2,8 @@ language: csharp
 
 matrix:
   include:
-    - os: linux # Ubuntu 14.04
-      dist: trusty
+    - os: linux # Ubuntu 16.04
+      dist: xenial
       sudo: required
       dotnet: 2.2.203
     - os: osx # OSX 10.12
