@@ -9,7 +9,6 @@
       <Paket>True</Paket>
       <Link>CircularBuffer.fs</Link>
     </Compile>
-    <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Utils.fs" />
     <Compile Include="Agent.fs" />
     <Compile Include="AutoCancelAgent.fs" />
