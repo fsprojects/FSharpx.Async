@@ -59,6 +59,13 @@ module Async =
            | Choice2Of2 ex -> ExceptionDispatchInfo.Capture(ex).Throw(); failwith "unreachable"
         ParallelWithThrottleCustom extractOrThrow throttle computations
 
+    /// Creates an asynchronous computation that executes all the given asynchronous computations, initially queueing each as work items and using a fork/join pattern.
+    /// Instead of returning and array of units, it returns a single unit.
+    let inline ParallelUnits (units:seq<Async<unit>>) : Async<unit> =
+        async {
+            let! (_:unit[]) = Async.Parallel units
+            return ()
+        }
 
 [<AutoOpen>]
 module AsyncExtensions =             
