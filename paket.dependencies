@@ -1,10 +1,8 @@
 source https://nuget.org/api/v2
+framework: auto-detect
+storage: none
 
-framework: net452
-
-nuget Fsharp.Core redirects:force
-nuget NUnit ~> 2.6
-nuget NUnit.Runners ~> 2.6
+nuget Fsharp.Core >= 4.3.4 lowest_matching:true
 nuget FSharp.Control.AsyncSeq
 github fsprojects/FSharpx.Collections src/FSharpx.Collections/CircularBuffer.fs
 
@@ -13,12 +11,12 @@ group Build
 
     nuget FAKE
     nuget FSharp.Formatting
-    nuget SourceLink.Fake
     github fsharp/FAKE modules/Octokit/Octokit.fsx
 
-group netcore
-    framework: netstandard2.0, netcoreapp2.0
+group Test
     source https://nuget.org/api/v2
+    framework: auto-detect
+    storage: none
 
     nuget Fsharp.Core
     nuget NUnit
@@ -26,5 +24,3 @@ group netcore
     nuget Microsoft.NET.Test.Sdk
     nuget FSharp.Control.AsyncSeq
     github fsprojects/FSharpx.Collections src/FSharpx.Collections/CircularBuffer.fs
-
-    clitool dotnet-mergenupkg >= 2.2

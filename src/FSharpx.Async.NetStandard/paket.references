@@ -1,5 +1,0 @@
-group netcore
-
-FSharp.Core
-FSharp.Control.AsyncSeq
-File:CircularBuffer.fs .

@@ -1,5 +1,5 @@
 environment:
-  CLI_VERSION: 2.0.0
+  CLI_VERSION: 2.2.203
 image: Visual Studio 2017
 init:
   - git config --global core.autocrlf input
