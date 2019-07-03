@@ -1,6 +1,20 @@
 language: csharp
 
-sudo: false  # use the new container-based Travis infrastructure 
+matrix:
+  include:
+    - os: linux # Ubuntu 14.04
+      dist: trusty
+      sudo: required
+      dotnet: 2.2.203
+    - os: osx # OSX 10.12
+      osx_image: xcode9.1
+      dotnet: 2.2.203
+      dist: trusty
+      sudo: required
 
 script: 
   - ./build.sh All
+
+branches:
+  except:
+    - gh-pages
