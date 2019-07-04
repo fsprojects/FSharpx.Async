@@ -14,7 +14,7 @@ matrix:
 
 install:
   # workaround for missing .net 4.5.2 targeting pack
-  - export FrameworkPathOverride=$(dirname $(which mono))/../lib/mono/4.5.2/
+  - export FrameworkPathOverride=$(dirname $(which mono))/../lib/mono/4.5.2-api/
 
 script: 
   - ./build.sh All
