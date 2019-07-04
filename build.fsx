@@ -5,6 +5,7 @@
 #r @"packages/build/FAKE/tools/FakeLib.dll"
 
 open Fake
+open Fake.AppVeyor
 open Fake.Git
 open Fake.ReleaseNotesHelper
 open System.IO
@@ -26,6 +27,13 @@ let release = LoadReleaseNotes "RELEASE_NOTES.md"
 
 let repositoryDir = DirectoryInfo(__SOURCE_DIRECTORY__).FullName
 let outputDir = Path.Combine(repositoryDir, "bin")
+
+let isAppVeyorBuild = buildServer = BuildServer.AppVeyor
+let hasRepoVersionTag = isAppVeyorBuild && AppVeyorEnvironment.RepoTag
+let versionSuffix =
+    if hasRepoVersionTag || (not isLocalBuild && (buildVersion = "LocalBuild"))
+    then ""
+    else sprintf "b%s" buildVersion
 
 // --------------------------------------------------------------------------------------
 // Clean build results
@@ -65,7 +73,7 @@ Target "NuGet" (fun _ ->
             Project="src/FSharpx.Async/FSharpx.Async.fsproj"
             Configuration="Release"
             OutputPath=outputDir
-            VersionSuffix=(if not isLocalBuild && (buildVersion = "LocalBuild") then "" else sprintf "b%s" buildVersion)
+            VersionSuffix=versionSuffix
         })
 )
 
