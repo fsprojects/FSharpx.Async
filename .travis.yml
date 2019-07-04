@@ -12,6 +12,10 @@ matrix:
       dist: trusty
       sudo: required
 
+install:
+  # workaround for missing .net 4.5.2 targeting pack
+  - export FrameworkPathOverride=$(dirname $(which mono))/../lib/mono/4.5.2/
+
 script: 
   - ./build.sh All
 
