@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VersionPrefix>1.14.0</VersionPrefix>
+    <Authors>Tomas Petricek;David Thomas;Ryan Riley;Steffen Forkmann</Authors>
+    <Summary>Async extensions for F#</Summary>
+    <Description>Async extensions for F#</Description>
+    <PackageLicenseUrl>https://github.com/fsprojects/FSharpx.Async/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/fsprojects/FSharpx.Async</PackageProjectUrl>
+    <PackageIconUrl>http://fsprojects.github.io/FSharpx.Async/img/logo.png</PackageIconUrl>
+    <PackageTags>F#;async;fsharpx</PackageTags>
+    <RepositoryUrl>https://github.com/fsprojects/FSharpx.Async</RepositoryUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19351-01" PrivateAssets="All"/>
+  </ItemGroup>
+</Project>

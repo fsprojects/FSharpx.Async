@@ -1,4 +1,5 @@
-FSharp.Control.AsyncSeq
+group Test
+FSharp.Core
+Microsoft.NET.Test.Sdk
 NUnit
-NUnit.Runners
-Fsharp.Core
+NUnit3TestAdapter

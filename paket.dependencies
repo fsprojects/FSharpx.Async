@@ -1,12 +1,26 @@
 source https://nuget.org/api/v2
+framework: auto-detect
+storage: none
 
-nuget Fsharp.Core redirects:force
-nuget FSharp.Formatting
-nuget NUnit ~> 2.6
-nuget NUnit.Runners ~> 2.6
-nuget FAKE
-nuget SourceLink.Fake
+nuget Fsharp.Core >= 4.3.4 lowest_matching:true
 nuget FSharp.Control.AsyncSeq
-
-github fsharp/FAKE modules/Octokit/Octokit.fsx
 github fsprojects/FSharpx.Collections src/FSharpx.Collections/CircularBuffer.fs
+
+group Build
+    source https://nuget.org/api/v2
+
+    nuget FAKE
+    nuget FSharp.Formatting
+    github fsharp/FAKE modules/Octokit/Octokit.fsx
+
+group Test
+    source https://nuget.org/api/v2
+    framework: auto-detect
+    storage: none
+
+    nuget Fsharp.Core
+    nuget NUnit
+    nuget NUnit3TestAdapter
+    nuget Microsoft.NET.Test.Sdk
+    nuget FSharp.Control.AsyncSeq
+    github fsprojects/FSharpx.Collections src/FSharpx.Collections/CircularBuffer.fs
