@@ -70,7 +70,7 @@ Target "NuGet" (fun _ ->
 )
 
 Target "PublishNuget" (fun _ ->
-    DotNetCli.Publish (fun p -> 
+    Paket.Push (fun p -> 
         { p with WorkingDir="bin" })
 )
 
