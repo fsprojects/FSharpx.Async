@@ -1,0 +1,36 @@
+<Project>
+  <PropertyGroup>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '1.14.2'">
+- Include Release Notes with release
+- Fix package lincense information
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '1.14.1'">
+- Support for netstandard2.0 - https://github.com/fsprojects/FSharpx.Async/pull/38
+- Async.Cache bubbles up exceptions - https://github.com/fsprojects/FSharpx.Async/pull/41
+- Add Async.ParallelUnits - https://github.com/fsprojects/FSharpx.Async/pull/36
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '1.13.2'">
+- Addded ParallelWithThrottle - https://github.com/fsprojects/FSharpx.Async/pull/31
+- Updated to .NET 4.5
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '1.11.1'">
+- BUGFIX: AsyncSeq.toBlockingSeq does not hung forever if an exception is thrown and reraise it outside - https://github.com/fsprojects/FSharpx.Async/pull/21
+- Added Async.bindChoice, Async.ParallelIgnore, AsyncSeq.zipWithAsync, AsyncSeq.zappAsync, AsyncSeq.threadStateAsync, AsyncSeq.merge, AsyncSeq.traverseOptionAsync, AsyncSeq.traverseChoiceAsync
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '1.11.0'">
+- Added Async.map, Async.bind, Async.unit
+- Added AsyncSeq.toList, AsyncSeq.toArray, AsyncSeq.bufferByCount, AsyncSeq.unfoldAsync, AsyncSeq.concatSeq, AsyncSeq.interleave
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '1.10.0'">
+- Use Paket instead of NuGet
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '1.9.9'">
+- BUGFIX: AsyncSeq.skipWhile skips an extra item - https://github.com/fsprojects/FSharpx.Async/pull/2
+- Copied the async helpers from FSharpx
+    </PackageReleaseNotes>
+    <PackageReleaseNotes>
+Changes in $(VersionPrefix): $(PackageReleaseNotes)
+    </PackageReleaseNotes>
+    <PackageReleaseNotes>$(PackageReleaseNotes.Trim())</PackageReleaseNotes>
+  </PropertyGroup>
+</Project>

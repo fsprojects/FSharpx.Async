@@ -7,7 +7,6 @@
 open Fake
 open Fake.AppVeyor
 open Fake.Git
-open Fake.ReleaseNotesHelper
 open System.IO
 
 
@@ -21,9 +20,6 @@ let gitName = "FSharpx.Async"
 
 // The url for the raw files hosted
 let gitRaw = environVarOrDefault "gitRaw" "https://raw.github.com/fsprojects"
-
-// Read additional information from the release notes document
-let release = LoadReleaseNotes "RELEASE_NOTES.md"
 
 let repositoryDir = DirectoryInfo(__SOURCE_DIRECTORY__).FullName
 let outputDir = Path.Combine(repositoryDir, "bin")
@@ -197,8 +193,8 @@ Target "ReleaseDocs" (fun _ ->
 
     CopyRecursive "docs/output" tempDocsDir true |> tracefn "%A"
     StageAll tempDocsDir
-    Git.Commit.Commit tempDocsDir (sprintf "Update generated documentation for version %s" release.NugetVersion)
-    Branches.push tempDocsDir
+    //Git.Commit.Commit tempDocsDir (sprintf "Update generated documentation for version %s" release.NugetVersion)
+    //Branches.push tempDocsDir
 )
 
 #load "paket-files/build/fsharp/FAKE/modules/Octokit/Octokit.fsx"
@@ -206,18 +202,18 @@ open Octokit
 
 Target "Release" (fun _ ->
     StageAll ""
-    Git.Commit.Commit "" (sprintf "Bump version to %s" release.NugetVersion)
-    Branches.push ""
+    //Git.Commit.Commit "" (sprintf "Bump version to %s" release.NugetVersion)
+    //Branches.push ""
 
-    Branches.tag "" release.NugetVersion
-    Branches.pushTag "" "origin" release.NugetVersion
+    //Branches.tag "" release.NugetVersion
+    //Branches.pushTag "" "origin" release.NugetVersion
     
     // release on github
-    createClient (getBuildParamOrDefault "github-user" "") (getBuildParamOrDefault "github-pw" "")
-    |> createDraft gitOwner gitName release.NugetVersion (release.SemVer.PreRelease <> None) release.Notes 
+    //createClient (getBuildParamOrDefault "github-user" "") (getBuildParamOrDefault "github-pw" "")
+    //|> createDraft gitOwner gitName release.NugetVersion (release.SemVer.PreRelease <> None) release.Notes 
     // TODO: |> uploadFile "PATH_TO_FILE"    
-    |> releaseDraft
-    |> Async.RunSynchronously
+    //|> releaseDraft
+    //|> Async.RunSynchronously
 )
 
 Target "BuildPackage" DoNothing
