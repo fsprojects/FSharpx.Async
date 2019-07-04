@@ -1,4 +1,4 @@
-### 1.14.0 - 04.07.2019
+### 1.14.1 - 04.07.2019
 * Support for netstandard2.0 - https://github.com/fsprojects/FSharpx.Async/pull/38
 * Async.Cache bubbles up exceptions - https://github.com/fsprojects/FSharpx.Async/pull/41
 * Add Async.ParallelUnits - https://github.com/fsprojects/FSharpx.Async/pull/36

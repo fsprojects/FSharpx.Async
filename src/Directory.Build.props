@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <VersionPrefix>1.14.1</VersionPrefix>
+    <VersionPrefix>1.14.2</VersionPrefix>
     <Authors>Tomas Petricek;David Thomas;Ryan Riley;Steffen Forkmann</Authors>
     <Summary>Async extensions for F#</Summary>
     <Description>Async extensions for F#</Description>
