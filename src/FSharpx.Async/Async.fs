@@ -33,7 +33,8 @@ module Async =
             use semaphore = new SemaphoreSlim(throttle)
             let throttleAsync a =
                 async {
-                    do! semaphore.WaitAsync() |> Async.AwaitTask
+                    let! cancellationToken = Async.CancellationToken
+                    do! semaphore.WaitAsync(cancellationToken) |> Async.AwaitTask
                     let! result = Async.Catch a
                     semaphore.Release() |> ignore
                     return tranformResult result
