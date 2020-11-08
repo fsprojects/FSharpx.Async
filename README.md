@@ -1,5 +1,3 @@
-[![Issue Stats](http://issuestats.com/github/fsprojects/FSharpx.Async/badge/issue)](http://issuestats.com/github/fsprojects/FSharpx.Async)
-[![Issue Stats](http://issuestats.com/github/fsprojects/FSharpx.Async/badge/pr)](http://issuestats.com/github/fsprojects/FSharpx.Async)
 [![Build status](https://ci.appveyor.com/api/projects/status/jv6nki3vm2s6bmj6?svg=true)](https://ci.appveyor.com/project/SteffenForkmann/fsharpx-async)
 [![Build status](https://travis-ci.org/fsprojects/FSharpx.Async.svg?branch=master)](https://travis-ci.org/fsprojects/FSharpx.Async)
 
