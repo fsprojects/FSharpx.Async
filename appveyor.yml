@@ -8,5 +8,5 @@ build_script:
 test: off
 version: '{build}'
 artifacts:
-  - path: bin/FSharpx.Async.*.nupkg
+  - path: bin/FSharpx.Async.*.*nupkg
     name: nupkg
