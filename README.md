@@ -1,5 +1,4 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/jv6nki3vm2s6bmj6?svg=true)](https://ci.appveyor.com/project/SteffenForkmann/fsharpx-async)
-[![Build status](https://travis-ci.org/fsprojects/FSharpx.Async.svg?branch=master)](https://travis-ci.org/fsprojects/FSharpx.Async)
 
 # FSharpx.Async [![NuGet Status](http://img.shields.io/nuget/v/FSharpx.Async.svg?style=flat)](https://www.nuget.org/packages/FSharpx.Async/)
 
