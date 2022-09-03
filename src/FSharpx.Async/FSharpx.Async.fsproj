@@ -27,6 +27,7 @@
     <Compile Include="AsyncStreamReader.fs" />
     <Compile Include="AsyncStream.fs" />
     <Compile Include="Async.IO.fs" />
+    <Compile Include="Net.fs" />
     <None Include="paket.references" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
