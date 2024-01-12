@@ -97,3 +97,7 @@ type BlockingQueueAgent<'T>(maxLength) =
 
     /// Gets the number of elements currently waiting in the queue.
     member x.Count = count
+
+    interface IDisposable with
+        member _.Dispose() =
+            (agent :> IDisposable).Dispose()
